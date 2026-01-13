@@ -1,0 +1,83 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: medusa-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: medusa_db
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - '5432:5432'
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U postgres']
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  redis:
+    image: redis:7-alpine
+    container_name: medusa-redis
+    restart: unless-stopped
+    ports:
+      - '6379:6379'
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ['CMD', 'redis-cli', 'ping']
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # medusa:
+  #   build:
+  #     context: ./medusa-backend
+  #     dockerfile: Dockerfile
+  #   container_name: medusa-backend
+  #   restart: unless-stopped
+  #   depends_on:
+  #     postgres:
+  #       condition: service_healthy
+  #     redis:
+  #       condition: service_healthy
+  #   environment:
+  #     DATABASE_URL: postgres://postgres:postgres@postgres:5432/medusa_db
+  #     REDIS_URL: redis://redis:6379
+  #     JWT_SECRET: supersecret-jwt-key-change-in-production-min32
+  #     COOKIE_SECRET: supersecret-cookie-key-change-in-production-min32
+  #     STORE_CORS: http://localhost:3001
+  #     ADMIN_CORS: http://localhost:9000
+  #     AUTH_CORS: http://localhost:3001,http://localhost:9000
+  #     NODE_ENV: development
+  #   ports:
+  #     - '9000:9000'
+  #   volumes:
+  #     - ./medusa-backend:/app
+  #     - /app/node_modules
+
+  # bff:
+  #   build:
+  #     context: ./nestjs-bff
+  #     dockerfile: Dockerfile
+  #   container_name: nestjs-bff
+  #   restart: unless-stopped
+  #   depends_on:
+  #     - medusa
+  #   environment:
+  #     NODE_ENV: development
+  #     PORT: 3001
+  #     MEDUSA_BACKEND_URL: http://medusa:9000
+  #     CORS_ORIGINS: http://localhost:3000
+  #   ports:
+  #     - '3001:3001'
+  #   volumes:
+  #     - ./nestjs-bff:/app
+  #     - /app/node_modules
+
+volumes:
+  postgres_data:
+  redis_data:
