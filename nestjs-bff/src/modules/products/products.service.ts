@@ -1,8 +1,9 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+import { Injectable, NotFoundException, UnauthorizedException } from '@nestjs/common';
 import { MedusaService } from '../../medusa/medusa.service';
 import { MedusaProduct } from '../../medusa/types';
 import { GetProductsDto } from './dto/get-products.dto';
 import { ProductResponseDto, ProductsListResponseDto } from './dto/product-response.dto';
+import { CreateProductDto } from './dto/create-product.dto';
 
 interface ProductsResponse {
   products: MedusaProduct[];
@@ -67,6 +68,95 @@ export class ProductsService {
     return { product: this.transformProduct(response.products[0]) };
   }
 
+  async createProduct(dto: CreateProductDto, authHeader: string): Promise<ProductResponseDto> {
+    if (!authHeader) {
+      throw new UnauthorizedException('Admin authorization header is required');
+    }
+
+    const response = await this.medusaService.adminRequest<SingleProductResponse>('/products', {
+      method: 'POST',
+      headers: {
+        Authorization: authHeader,
+      },
+      body: {
+        title: dto.title,
+        subtitle: dto.subtitle,
+        description: dto.description,
+        handle: dto.handle,
+        is_giftcard: dto.is_giftcard,
+        status: dto.status,
+        thumbnail: dto.thumbnail,
+        images: dto.images?.map((url) => ({ url })),
+        collection_id: dto.collection_id,
+        categories: dto.categories?.map((id) => ({ id })),
+        options: dto.options?.map((opt) => ({
+          title: opt.title,
+          values: opt.values,
+        })),
+        variants: dto.variants?.map((variant) => ({
+          title: variant.title,
+          sku: variant.sku,
+          inventory_quantity: variant.inventory_quantity,
+          allow_backorder: variant.allow_backorder,
+          manage_inventory: variant.manage_inventory,
+          prices: variant.prices,
+          options: variant.options,
+        })),
+        metadata: dto.metadata,
+      },
+    });
+
+    return { product: this.transformProduct(response.product) };
+  }
+
+  async updateProduct(
+    id: string,
+    dto: Partial<CreateProductDto>,
+    authHeader: string,
+  ): Promise<ProductResponseDto> {
+    if (!authHeader) {
+      throw new UnauthorizedException('Admin authorization header is required');
+    }
+
+    const response = await this.medusaService.adminRequest<SingleProductResponse>(
+      `/products/${id}`,
+      {
+        method: 'POST',
+        headers: {
+          Authorization: authHeader,
+        },
+        body: {
+          title: dto.title,
+          subtitle: dto.subtitle,
+          description: dto.description,
+          handle: dto.handle,
+          status: dto.status,
+          thumbnail: dto.thumbnail,
+          images: dto.images?.map((url) => ({ url })),
+          collection_id: dto.collection_id,
+          metadata: dto.metadata,
+        },
+      },
+    );
+
+    return { product: this.transformProduct(response.product) };
+  }
+
+  async deleteProduct(id: string, authHeader: string): Promise<{ id: string; deleted: boolean }> {
+    if (!authHeader) {
+      throw new UnauthorizedException('Admin authorization header is required');
+    }
+
+    await this.medusaService.adminRequest(`/products/${id}`, {
+      method: 'DELETE',
+      headers: {
+        Authorization: authHeader,
+      },
+    });
+
+    return { id, deleted: true };
+  }
+
   private transformProduct(product: MedusaProduct) {
     return {
       id: product.id,
@@ -75,25 +165,29 @@ export class ProductsService {
       description: product.description,
       handle: product.handle,
       thumbnail: product.thumbnail,
-      images: product.images?.map((img) => ({
-        id: img.id,
-        url: img.url,
-      })) || [],
-      options: product.options?.map((opt) => ({
-        id: opt.id,
-        title: opt.title,
-        values: opt.values?.map((v) => v.value) || [],
-      })) || [],
-      variants: product.variants?.map((variant) => ({
-        id: variant.id,
-        title: variant.title,
-        sku: variant.sku,
-        inventoryQuantity: variant.inventory_quantity,
-        prices: variant.prices?.map((price) => ({
-          currencyCode: price.currency_code,
-          amount: price.amount,
+      images:
+        product.images?.map((img) => ({
+          id: img.id,
+          url: img.url,
         })) || [],
-      })) || [],
+      options:
+        product.options?.map((opt) => ({
+          id: opt.id,
+          title: opt.title,
+          values: opt.values?.map((v) => v.value) || [],
+        })) || [],
+      variants:
+        product.variants?.map((variant) => ({
+          id: variant.id,
+          title: variant.title,
+          sku: variant.sku,
+          inventoryQuantity: variant.inventory_quantity,
+          prices:
+            variant.prices?.map((price) => ({
+              currencyCode: price.currency_code,
+              amount: price.amount,
+            })) || [],
+        })) || [],
       collection: product.collection
         ? {
             id: product.collection.id,
@@ -101,11 +195,12 @@ export class ProductsService {
             handle: product.collection.handle,
           }
         : null,
-      categories: product.categories?.map((cat) => ({
-        id: cat.id,
-        name: cat.name,
-        handle: cat.handle,
-      })) || [],
+      categories:
+        product.categories?.map((cat) => ({
+          id: cat.id,
+          name: cat.name,
+          handle: cat.handle,
+        })) || [],
       createdAt: product.created_at,
       updatedAt: product.updated_at,
     };
