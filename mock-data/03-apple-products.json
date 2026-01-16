@@ -1,0 +1,362 @@
+{
+  "description": "Apple Products - Execute after categories are created",
+  "brand": "Apple",
+  "products": [
+    {
+      "step": 1,
+      "name": "iPhone 15 Pro Max",
+      "endpoint": "POST /api/v1/products",
+      "body": {
+        "title": "iPhone 15 Pro Max",
+        "subtitle": "The most powerful iPhone ever",
+        "handle": "iphone-15-pro-max",
+        "description": "iPhone 15 Pro Max features a titanium design, A17 Pro chip, 48MP camera system with 5x optical zoom, and Action button. Available in Natural Titanium, Blue Titanium, White Titanium, and Black Titanium.",
+        "status": "published",
+        "thumbnail": "https://example.com/images/iphone-15-pro-max.jpg",
+        "images": [
+          "https://example.com/images/iphone-15-pro-max-1.jpg",
+          "https://example.com/images/iphone-15-pro-max-2.jpg",
+          "https://example.com/images/iphone-15-pro-max-3.jpg"
+        ],
+        "categories": ["{{iphones_category_id}}"],
+        "collection_id": "{{flagship_phones_collection_id}}",
+        "options": [
+          {
+            "title": "Storage",
+            "values": ["256GB", "512GB", "1TB"]
+          },
+          {
+            "title": "Color",
+            "values": [
+              "Natural Titanium",
+              "Blue Titanium",
+              "White Titanium",
+              "Black Titanium"
+            ]
+          }
+        ],
+        "variants": [
+          {
+            "title": "256GB / Natural Titanium",
+            "sku": "IPHONE15PM-256-NAT",
+            "options": { "Storage": "256GB", "Color": "Natural Titanium" },
+            "prices": [
+              { "currency_code": "pkr", "amount": 549999 },
+              { "currency_code": "usd", "amount": 1199 }
+            ],
+            "manage_inventory": true,
+            "allow_backorder": false
+          },
+          {
+            "title": "256GB / Blue Titanium",
+            "sku": "IPHONE15PM-256-BLU",
+            "options": { "Storage": "256GB", "Color": "Blue Titanium" },
+            "prices": [
+              { "currency_code": "pkr", "amount": 549999 },
+              { "currency_code": "usd", "amount": 1199 }
+            ],
+            "manage_inventory": true,
+            "allow_backorder": false
+          },
+          {
+            "title": "512GB / Natural Titanium",
+            "sku": "IPHONE15PM-512-NAT",
+            "options": { "Storage": "512GB", "Color": "Natural Titanium" },
+            "prices": [
+              { "currency_code": "pkr", "amount": 649999 },
+              { "currency_code": "usd", "amount": 1399 }
+            ],
+            "manage_inventory": true,
+            "allow_backorder": false
+          },
+          {
+            "title": "512GB / Black Titanium",
+            "sku": "IPHONE15PM-512-BLK",
+            "options": { "Storage": "512GB", "Color": "Black Titanium" },
+            "prices": [
+              { "currency_code": "pkr", "amount": 649999 },
+              { "currency_code": "usd", "amount": 1399 }
+            ],
+            "manage_inventory": true,
+            "allow_backorder": false
+          },
+          {
+            "title": "1TB / Natural Titanium",
+            "sku": "IPHONE15PM-1TB-NAT",
+            "options": { "Storage": "1TB", "Color": "Natural Titanium" },
+            "prices": [
+              { "currency_code": "pkr", "amount": 749999 },
+              { "currency_code": "usd", "amount": 1599 }
+            ],
+            "manage_inventory": true,
+            "allow_backorder": false
+          }
+        ],
+        "metadata": {
+          "brand": "Apple",
+          "release_year": 2023,
+          "warranty_months": 12
+        }
+      }
+    },
+    {
+      "step": 2,
+      "name": "iPhone 15 Pro",
+      "endpoint": "POST /api/v1/products",
+      "body": {
+        "title": "iPhone 15 Pro",
+        "subtitle": "Pro. Beyond.",
+        "handle": "iphone-15-pro",
+        "description": "iPhone 15 Pro features a titanium design, A17 Pro chip, 48MP camera with 3x optical zoom, and Action button. Compact flagship performance.",
+        "status": "published",
+        "thumbnail": "https://example.com/images/iphone-15-pro.jpg",
+        "images": [
+          "https://example.com/images/iphone-15-pro-1.jpg",
+          "https://example.com/images/iphone-15-pro-2.jpg"
+        ],
+        "categories": ["{{iphones_category_id}}"],
+        "collection_id": "{{flagship_phones_collection_id}}",
+        "options": [
+          {
+            "title": "Storage",
+            "values": ["128GB", "256GB", "512GB"]
+          },
+          {
+            "title": "Color",
+            "values": [
+              "Natural Titanium",
+              "Blue Titanium",
+              "White Titanium",
+              "Black Titanium"
+            ]
+          }
+        ],
+        "variants": [
+          {
+            "title": "128GB / Natural Titanium",
+            "sku": "IPHONE15P-128-NAT",
+            "options": { "Storage": "128GB", "Color": "Natural Titanium" },
+            "prices": [
+              { "currency_code": "pkr", "amount": 449999 },
+              { "currency_code": "usd", "amount": 999 }
+            ],
+            "manage_inventory": true
+          },
+          {
+            "title": "256GB / Blue Titanium",
+            "sku": "IPHONE15P-256-BLU",
+            "options": { "Storage": "256GB", "Color": "Blue Titanium" },
+            "prices": [
+              { "currency_code": "pkr", "amount": 499999 },
+              { "currency_code": "usd", "amount": 1099 }
+            ],
+            "manage_inventory": true
+          },
+          {
+            "title": "512GB / Black Titanium",
+            "sku": "IPHONE15P-512-BLK",
+            "options": { "Storage": "512GB", "Color": "Black Titanium" },
+            "prices": [
+              { "currency_code": "pkr", "amount": 599999 },
+              { "currency_code": "usd", "amount": 1299 }
+            ],
+            "manage_inventory": true
+          }
+        ],
+        "metadata": {
+          "brand": "Apple",
+          "release_year": 2023,
+          "warranty_months": 12
+        }
+      }
+    },
+    {
+      "step": 3,
+      "name": "iPhone 15",
+      "endpoint": "POST /api/v1/products",
+      "body": {
+        "title": "iPhone 15",
+        "subtitle": "New camera. New design. Newphoria.",
+        "handle": "iphone-15",
+        "description": "iPhone 15 features Dynamic Island, 48MP camera, A16 Bionic chip, and USB-C. Available in vibrant colors.",
+        "status": "published",
+        "thumbnail": "https://example.com/images/iphone-15.jpg",
+        "categories": ["{{iphones_category_id}}"],
+        "collection_id": "{{new_arrivals_collection_id}}",
+        "options": [
+          {
+            "title": "Storage",
+            "values": ["128GB", "256GB", "512GB"]
+          },
+          {
+            "title": "Color",
+            "values": ["Pink", "Yellow", "Green", "Blue", "Black"]
+          }
+        ],
+        "variants": [
+          {
+            "title": "128GB / Pink",
+            "sku": "IPHONE15-128-PNK",
+            "options": { "Storage": "128GB", "Color": "Pink" },
+            "prices": [
+              { "currency_code": "pkr", "amount": 349999 },
+              { "currency_code": "usd", "amount": 799 }
+            ],
+            "manage_inventory": true
+          },
+          {
+            "title": "128GB / Blue",
+            "sku": "IPHONE15-128-BLU",
+            "options": { "Storage": "128GB", "Color": "Blue" },
+            "prices": [
+              { "currency_code": "pkr", "amount": 349999 },
+              { "currency_code": "usd", "amount": 799 }
+            ],
+            "manage_inventory": true
+          },
+          {
+            "title": "256GB / Black",
+            "sku": "IPHONE15-256-BLK",
+            "options": { "Storage": "256GB", "Color": "Black" },
+            "prices": [
+              { "currency_code": "pkr", "amount": 399999 },
+              { "currency_code": "usd", "amount": 899 }
+            ],
+            "manage_inventory": true
+          }
+        ],
+        "metadata": {
+          "brand": "Apple",
+          "release_year": 2023,
+          "warranty_months": 12
+        }
+      }
+    },
+    {
+      "step": 4,
+      "name": "MacBook Pro 14-inch M3 Pro",
+      "endpoint": "POST /api/v1/products",
+      "body": {
+        "title": "MacBook Pro 14-inch M3 Pro",
+        "subtitle": "Scary fast performance",
+        "handle": "macbook-pro-14-m3-pro",
+        "description": "MacBook Pro 14-inch with M3 Pro chip, up to 18 hours battery life, Liquid Retina XDR display, and advanced connectivity.",
+        "status": "published",
+        "thumbnail": "https://example.com/images/macbook-pro-14.jpg",
+        "categories": ["{{macbooks_category_id}}"],
+        "collection_id": "{{best_sellers_collection_id}}",
+        "options": [
+          {
+            "title": "Memory",
+            "values": ["18GB", "36GB"]
+          },
+          {
+            "title": "Storage",
+            "values": ["512GB", "1TB", "2TB"]
+          },
+          {
+            "title": "Color",
+            "values": ["Space Black", "Silver"]
+          }
+        ],
+        "variants": [
+          {
+            "title": "18GB / 512GB / Space Black",
+            "sku": "MBP14-M3P-18-512-BLK",
+            "options": {
+              "Memory": "18GB",
+              "Storage": "512GB",
+              "Color": "Space Black"
+            },
+            "prices": [
+              { "currency_code": "pkr", "amount": 899999 },
+              { "currency_code": "usd", "amount": 1999 }
+            ],
+            "manage_inventory": true
+          },
+          {
+            "title": "18GB / 1TB / Silver",
+            "sku": "MBP14-M3P-18-1TB-SLV",
+            "options": {
+              "Memory": "18GB",
+              "Storage": "1TB",
+              "Color": "Silver"
+            },
+            "prices": [
+              { "currency_code": "pkr", "amount": 999999 },
+              { "currency_code": "usd", "amount": 2199 }
+            ],
+            "manage_inventory": true
+          },
+          {
+            "title": "36GB / 1TB / Space Black",
+            "sku": "MBP14-M3P-36-1TB-BLK",
+            "options": {
+              "Memory": "36GB",
+              "Storage": "1TB",
+              "Color": "Space Black"
+            },
+            "prices": [
+              { "currency_code": "pkr", "amount": 1199999 },
+              { "currency_code": "usd", "amount": 2599 }
+            ],
+            "manage_inventory": true
+          }
+        ],
+        "metadata": {
+          "brand": "Apple",
+          "release_year": 2023,
+          "warranty_months": 12
+        }
+      }
+    },
+    {
+      "step": 5,
+      "name": "AirPods Pro 2nd Gen",
+      "endpoint": "POST /api/v1/products",
+      "body": {
+        "title": "AirPods Pro (2nd Generation)",
+        "subtitle": "Adaptive Audio. Now playing.",
+        "handle": "airpods-pro-2",
+        "description": "AirPods Pro with H2 chip, Active Noise Cancellation, Adaptive Audio, and USB-C charging case.",
+        "status": "published",
+        "thumbnail": "https://example.com/images/airpods-pro-2.jpg",
+        "categories": ["{{apple_accessories_category_id}}"],
+        "collection_id": "{{best_sellers_collection_id}}",
+        "options": [
+          {
+            "title": "Case Type",
+            "values": ["USB-C", "Lightning"]
+          }
+        ],
+        "variants": [
+          {
+            "title": "USB-C Case",
+            "sku": "AIRPODS-PRO2-USBC",
+            "options": { "Case Type": "USB-C" },
+            "prices": [
+              { "currency_code": "pkr", "amount": 89999 },
+              { "currency_code": "usd", "amount": 249 }
+            ],
+            "manage_inventory": true
+          },
+          {
+            "title": "Lightning Case",
+            "sku": "AIRPODS-PRO2-LIGHT",
+            "options": { "Case Type": "Lightning" },
+            "prices": [
+              { "currency_code": "pkr", "amount": 84999 },
+              { "currency_code": "usd", "amount": 229 }
+            ],
+            "manage_inventory": true
+          }
+        ],
+        "metadata": {
+          "brand": "Apple",
+          "release_year": 2023,
+          "warranty_months": 12
+        }
+      }
+    }
+  ]
+}

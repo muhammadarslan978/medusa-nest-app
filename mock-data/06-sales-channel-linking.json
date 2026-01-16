@@ -1,0 +1,34 @@
+{
+  "description": "Sales Channel Linking - Execute after products are created",
+  "sales_channel": {
+    "id": "sc_01KF0HA17R96P1CSEW8SB5RVF4",
+    "name": "Rox Mobile App"
+  },
+  "link_products": {
+    "step": 1,
+    "description": "Link all products to the Rox Mobile App sales channel",
+    "endpoint": "POST /api/v1/store/sales-channels/sc_01KF0HA17R96P1CSEW8SB5RVF4/products",
+    "body": {
+      "add": [
+        "{{iphone_15_pro_max_id}}",
+        "{{iphone_15_pro_id}}",
+        "{{iphone_15_id}}",
+        "{{macbook_pro_14_id}}",
+        "{{airpods_pro_2_id}}",
+        "{{galaxy_s24_ultra_id}}",
+        "{{galaxy_s24_plus_id}}",
+        "{{galaxy_s24_id}}",
+        "{{galaxy_z_fold_5_id}}",
+        "{{galaxy_buds_2_pro_id}}"
+      ]
+    }
+  },
+  "link_stock_location": {
+    "step": 2,
+    "description": "Link stock location to sales channel for inventory visibility",
+    "endpoint": "POST /api/v1/store/stock-locations/{{stock_location_id}}/sales-channels",
+    "body": {
+      "add": ["sc_01KF0HA17R96P1CSEW8SB5RVF4"]
+    }
+  }
+}

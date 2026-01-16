@@ -1,0 +1,53 @@
+{
+  "description": "Product Collections Setup - Execute after categories",
+  "collections": [
+    {
+      "step": 1,
+      "endpoint": "POST /api/v1/collections",
+      "body": {
+        "title": "New Arrivals",
+        "handle": "new-arrivals",
+        "metadata": {
+          "featured": true,
+          "banner_url": "https://example.com/banners/new-arrivals.jpg"
+        }
+      }
+    },
+    {
+      "step": 2,
+      "endpoint": "POST /api/v1/collections",
+      "body": {
+        "title": "Best Sellers",
+        "handle": "best-sellers",
+        "metadata": {
+          "featured": true,
+          "banner_url": "https://example.com/banners/best-sellers.jpg"
+        }
+      }
+    },
+    {
+      "step": 3,
+      "endpoint": "POST /api/v1/collections",
+      "body": {
+        "title": "Flagship Phones",
+        "handle": "flagship-phones",
+        "metadata": {
+          "featured": true,
+          "description": "Premium flagship smartphones from top brands"
+        }
+      }
+    },
+    {
+      "step": 4,
+      "endpoint": "POST /api/v1/collections",
+      "body": {
+        "title": "Budget Friendly",
+        "handle": "budget-friendly",
+        "metadata": {
+          "featured": false,
+          "description": "Affordable devices without compromising quality"
+        }
+      }
+    }
+  ]
+}

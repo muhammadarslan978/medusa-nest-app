@@ -39,6 +39,34 @@ export class ProductsService {
     };
   }
 
+  async getAdminProducts(
+    query: GetProductsDto,
+    authHeader: string,
+  ): Promise<ProductsListResponseDto> {
+    if (!authHeader) {
+      throw new UnauthorizedException('Admin authorization header is required');
+    }
+
+    const response = await this.medusaService.adminRequest<ProductsResponse>('/products', {
+      method: 'GET',
+      headers: {
+        Authorization: authHeader,
+      },
+      query: {
+        offset: query.offset ?? 0,
+        limit: query.limit ?? 20,
+        q: query.search,
+      },
+    });
+
+    return {
+      products: response.products.map(this.transformProduct),
+      count: response.count,
+      offset: response.offset,
+      limit: response.limit,
+    };
+  }
+
   async getProduct(id: string): Promise<ProductResponseDto> {
     try {
       const response = await this.medusaService.storeRequest<SingleProductResponse>(
@@ -155,6 +183,71 @@ export class ProductsService {
     });
 
     return { id, deleted: true };
+  }
+
+  async updateProductCategories(
+    id: string,
+    categoryIds: string[],
+    authHeader: string,
+  ): Promise<ProductResponseDto> {
+    if (!authHeader) {
+      throw new UnauthorizedException('Admin authorization header is required');
+    }
+
+    const response = await this.medusaService.adminRequest<SingleProductResponse>(
+      `/products/${id}`,
+      {
+        method: 'POST',
+        headers: {
+          Authorization: authHeader,
+        },
+        body: {
+          categories: categoryIds.map((catId) => ({ id: catId })),
+        },
+      },
+    );
+
+    return { product: this.transformProduct(response.product) };
+  }
+
+  async getProductsByCategory(
+    categoryId: string,
+    query: GetProductsDto,
+  ): Promise<ProductsListResponseDto> {
+    const response = await this.medusaService.storeRequest<ProductsResponse>('/products', {
+      query: {
+        offset: query.offset,
+        limit: query.limit,
+        category_id: categoryId,
+      },
+    });
+
+    return {
+      products: response.products.map(this.transformProduct),
+      count: response.count,
+      offset: response.offset,
+      limit: response.limit,
+    };
+  }
+
+  async getProductsByCollection(
+    collectionId: string,
+    query: GetProductsDto,
+  ): Promise<ProductsListResponseDto> {
+    const response = await this.medusaService.storeRequest<ProductsResponse>('/products', {
+      query: {
+        offset: query.offset,
+        limit: query.limit,
+        collection_id: collectionId,
+      },
+    });
+
+    return {
+      products: response.products.map(this.transformProduct),
+      count: response.count,
+      offset: response.offset,
+      limit: response.limit,
+    };
   }
 
   private transformProduct(product: MedusaProduct) {

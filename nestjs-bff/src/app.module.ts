@@ -10,6 +10,9 @@ import { AuthModule } from './modules/auth/auth.module';
 import { OrdersModule } from './modules/orders/orders.module';
 import { HealthModule } from './modules/health/health.module';
 import { StoreModule } from './modules/store/store.module';
+import { CategoriesModule } from './modules/categories/categories.module';
+import { CollectionsModule } from './modules/collections/collections.module';
+import { InventoryModule } from './modules/inventory/inventory.module';
 
 @Module({
   imports: [
@@ -21,6 +24,9 @@ import { StoreModule } from './modules/store/store.module';
     TerminusModule,
     MedusaModule,
     ProductsModule,
+    CategoriesModule,
+    CollectionsModule,
+    InventoryModule,
     CartModule,
     CheckoutModule,
     AuthModule,

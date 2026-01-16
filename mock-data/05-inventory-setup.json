@@ -1,0 +1,118 @@
+{
+  "description": "Inventory Setup - Execute after products are created and linked to sales channel",
+  "note": "Replace inventory_item_id with actual IDs from GET /api/v1/inventory",
+  "stock_location": {
+    "note": "Use your existing stock location or create one",
+    "endpoint": "POST /api/v1/store/stock-locations",
+    "body": {
+      "name": "Main Warehouse",
+      "address": {
+        "address_1": "123 Warehouse Street",
+        "city": "Islamabad",
+        "country_code": "pk",
+        "postal_code": "44000"
+      }
+    }
+  },
+  "inventory_levels": [
+    {
+      "product": "iPhone 15 Pro Max - 256GB / Natural Titanium",
+      "sku": "IPHONE15PM-256-NAT",
+      "endpoint": "POST /api/v1/inventory/{inventory_item_id}/location-levels",
+      "body": {
+        "location_id": "{{stock_location_id}}",
+        "stocked_quantity": 50
+      }
+    },
+    {
+      "product": "iPhone 15 Pro Max - 512GB / Natural Titanium",
+      "sku": "IPHONE15PM-512-NAT",
+      "endpoint": "POST /api/v1/inventory/{inventory_item_id}/location-levels",
+      "body": {
+        "location_id": "{{stock_location_id}}",
+        "stocked_quantity": 30
+      }
+    },
+    {
+      "product": "iPhone 15 Pro - 128GB / Natural Titanium",
+      "sku": "IPHONE15P-128-NAT",
+      "endpoint": "POST /api/v1/inventory/{inventory_item_id}/location-levels",
+      "body": {
+        "location_id": "{{stock_location_id}}",
+        "stocked_quantity": 75
+      }
+    },
+    {
+      "product": "iPhone 15 - 128GB / Pink",
+      "sku": "IPHONE15-128-PNK",
+      "endpoint": "POST /api/v1/inventory/{inventory_item_id}/location-levels",
+      "body": {
+        "location_id": "{{stock_location_id}}",
+        "stocked_quantity": 100
+      }
+    },
+    {
+      "product": "MacBook Pro 14-inch - 18GB / 512GB / Space Black",
+      "sku": "MBP14-M3P-18-512-BLK",
+      "endpoint": "POST /api/v1/inventory/{inventory_item_id}/location-levels",
+      "body": {
+        "location_id": "{{stock_location_id}}",
+        "stocked_quantity": 25
+      }
+    },
+    {
+      "product": "AirPods Pro 2 - USB-C Case",
+      "sku": "AIRPODS-PRO2-USBC",
+      "endpoint": "POST /api/v1/inventory/{inventory_item_id}/location-levels",
+      "body": {
+        "location_id": "{{stock_location_id}}",
+        "stocked_quantity": 200
+      }
+    },
+    {
+      "product": "Galaxy S24 Ultra - 256GB / Titanium Black",
+      "sku": "S24U-256-BLK",
+      "endpoint": "POST /api/v1/inventory/{inventory_item_id}/location-levels",
+      "body": {
+        "location_id": "{{stock_location_id}}",
+        "stocked_quantity": 60
+      }
+    },
+    {
+      "product": "Galaxy S24+ - 256GB / Onyx Black",
+      "sku": "S24P-256-BLK",
+      "endpoint": "POST /api/v1/inventory/{inventory_item_id}/location-levels",
+      "body": {
+        "location_id": "{{stock_location_id}}",
+        "stocked_quantity": 80
+      }
+    },
+    {
+      "product": "Galaxy S24 - 128GB / Onyx Black",
+      "sku": "S24-128-BLK",
+      "endpoint": "POST /api/v1/inventory/{inventory_item_id}/location-levels",
+      "body": {
+        "location_id": "{{stock_location_id}}",
+        "stocked_quantity": 120
+      }
+    },
+    {
+      "product": "Galaxy Z Fold 5 - 256GB / Phantom Black",
+      "sku": "ZFOLD5-256-BLK",
+      "endpoint": "POST /api/v1/inventory/{inventory_item_id}/location-levels",
+      "body": {
+        "location_id": "{{stock_location_id}}",
+        "stocked_quantity": 20
+      }
+    },
+    {
+      "product": "Galaxy Buds 2 Pro - Graphite",
+      "sku": "BUDS2PRO-GRP",
+      "endpoint": "POST /api/v1/inventory/{inventory_item_id}/location-levels",
+      "body": {
+        "location_id": "{{stock_location_id}}",
+        "stocked_quantity": 150
+      }
+    }
+  ]
+}

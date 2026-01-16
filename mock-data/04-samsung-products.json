@@ -1,0 +1,346 @@
+{
+  "description": "Samsung Products - Execute after categories are created",
+  "brand": "Samsung",
+  "products": [
+    {
+      "step": 1,
+      "name": "Samsung Galaxy S24 Ultra",
+      "endpoint": "POST /api/v1/products",
+      "body": {
+        "title": "Samsung Galaxy S24 Ultra",
+        "subtitle": "The ultimate Galaxy experience",
+        "handle": "samsung-galaxy-s24-ultra",
+        "description": "Galaxy S24 Ultra features a titanium frame, 200MP camera, S Pen, Snapdragon 8 Gen 3, and Galaxy AI. The most powerful Galaxy smartphone.",
+        "status": "published",
+        "thumbnail": "https://example.com/images/galaxy-s24-ultra.jpg",
+        "images": [
+          "https://example.com/images/galaxy-s24-ultra-1.jpg",
+          "https://example.com/images/galaxy-s24-ultra-2.jpg",
+          "https://example.com/images/galaxy-s24-ultra-3.jpg"
+        ],
+        "categories": ["{{galaxy_phones_category_id}}"],
+        "collection_id": "{{flagship_phones_collection_id}}",
+        "options": [
+          {
+            "title": "Storage",
+            "values": ["256GB", "512GB", "1TB"]
+          },
+          {
+            "title": "Color",
+            "values": [
+              "Titanium Black",
+              "Titanium Gray",
+              "Titanium Violet",
+              "Titanium Yellow"
+            ]
+          }
+        ],
+        "variants": [
+          {
+            "title": "256GB / Titanium Black",
+            "sku": "S24U-256-BLK",
+            "options": { "Storage": "256GB", "Color": "Titanium Black" },
+            "prices": [
+              { "currency_code": "pkr", "amount": 499999 },
+              { "currency_code": "usd", "amount": 1299 }
+            ],
+            "manage_inventory": true,
+            "allow_backorder": false
+          },
+          {
+            "title": "256GB / Titanium Violet",
+            "sku": "S24U-256-VIO",
+            "options": { "Storage": "256GB", "Color": "Titanium Violet" },
+            "prices": [
+              { "currency_code": "pkr", "amount": 499999 },
+              { "currency_code": "usd", "amount": 1299 }
+            ],
+            "manage_inventory": true,
+            "allow_backorder": false
+          },
+          {
+            "title": "512GB / Titanium Gray",
+            "sku": "S24U-512-GRY",
+            "options": { "Storage": "512GB", "Color": "Titanium Gray" },
+            "prices": [
+              { "currency_code": "pkr", "amount": 549999 },
+              { "currency_code": "usd", "amount": 1419 }
+            ],
+            "manage_inventory": true,
+            "allow_backorder": false
+          },
+          {
+            "title": "1TB / Titanium Black",
+            "sku": "S24U-1TB-BLK",
+            "options": { "Storage": "1TB", "Color": "Titanium Black" },
+            "prices": [
+              { "currency_code": "pkr", "amount": 649999 },
+              { "currency_code": "usd", "amount": 1659 }
+            ],
+            "manage_inventory": true,
+            "allow_backorder": false
+          }
+        ],
+        "metadata": {
+          "brand": "Samsung",
+          "release_year": 2024,
+          "warranty_months": 12
+        }
+      }
+    },
+    {
+      "step": 2,
+      "name": "Samsung Galaxy S24+",
+      "endpoint": "POST /api/v1/products",
+      "body": {
+        "title": "Samsung Galaxy S24+",
+        "subtitle": "More screen. More power.",
+        "handle": "samsung-galaxy-s24-plus",
+        "description": "Galaxy S24+ features a 6.7-inch Dynamic AMOLED display, Snapdragon 8 Gen 3, 50MP camera, and Galaxy AI capabilities.",
+        "status": "published",
+        "thumbnail": "https://example.com/images/galaxy-s24-plus.jpg",
+        "categories": ["{{galaxy_phones_category_id}}"],
+        "collection_id": "{{flagship_phones_collection_id}}",
+        "options": [
+          {
+            "title": "Storage",
+            "values": ["256GB", "512GB"]
+          },
+          {
+            "title": "Color",
+            "values": [
+              "Onyx Black",
+              "Marble Gray",
+              "Cobalt Violet",
+              "Amber Yellow"
+            ]
+          }
+        ],
+        "variants": [
+          {
+            "title": "256GB / Onyx Black",
+            "sku": "S24P-256-BLK",
+            "options": { "Storage": "256GB", "Color": "Onyx Black" },
+            "prices": [
+              { "currency_code": "pkr", "amount": 399999 },
+              { "currency_code": "usd", "amount": 999 }
+            ],
+            "manage_inventory": true
+          },
+          {
+            "title": "256GB / Cobalt Violet",
+            "sku": "S24P-256-VIO",
+            "options": { "Storage": "256GB", "Color": "Cobalt Violet" },
+            "prices": [
+              { "currency_code": "pkr", "amount": 399999 },
+              { "currency_code": "usd", "amount": 999 }
+            ],
+            "manage_inventory": true
+          },
+          {
+            "title": "512GB / Marble Gray",
+            "sku": "S24P-512-GRY",
+            "options": { "Storage": "512GB", "Color": "Marble Gray" },
+            "prices": [
+              { "currency_code": "pkr", "amount": 449999 },
+              { "currency_code": "usd", "amount": 1119 }
+            ],
+            "manage_inventory": true
+          }
+        ],
+        "metadata": {
+          "brand": "Samsung",
+          "release_year": 2024,
+          "warranty_months": 12
+        }
+      }
+    },
+    {
+      "step": 3,
+      "name": "Samsung Galaxy S24",
+      "endpoint": "POST /api/v1/products",
+      "body": {
+        "title": "Samsung Galaxy S24",
+        "subtitle": "Galaxy AI is here",
+        "handle": "samsung-galaxy-s24",
+        "description": "Galaxy S24 features a compact 6.2-inch display, Exynos 2400, 50MP camera, and full Galaxy AI experience.",
+        "status": "published",
+        "thumbnail": "https://example.com/images/galaxy-s24.jpg",
+        "categories": ["{{galaxy_phones_category_id}}"],
+        "collection_id": "{{new_arrivals_collection_id}}",
+        "options": [
+          {
+            "title": "Storage",
+            "values": ["128GB", "256GB"]
+          },
+          {
+            "title": "Color",
+            "values": [
+              "Onyx Black",
+              "Marble Gray",
+              "Cobalt Violet",
+              "Amber Yellow"
+            ]
+          }
+        ],
+        "variants": [
+          {
+            "title": "128GB / Onyx Black",
+            "sku": "S24-128-BLK",
+            "options": { "Storage": "128GB", "Color": "Onyx Black" },
+            "prices": [
+              { "currency_code": "pkr", "amount": 299999 },
+              { "currency_code": "usd", "amount": 799 }
+            ],
+            "manage_inventory": true
+          },
+          {
+            "title": "128GB / Amber Yellow",
+            "sku": "S24-128-YLW",
+            "options": { "Storage": "128GB", "Color": "Amber Yellow" },
+            "prices": [
+              { "currency_code": "pkr", "amount": 299999 },
+              { "currency_code": "usd", "amount": 799 }
+            ],
+            "manage_inventory": true
+          },
+          {
+            "title": "256GB / Cobalt Violet",
+            "sku": "S24-256-VIO",
+            "options": { "Storage": "256GB", "Color": "Cobalt Violet" },
+            "prices": [
+              { "currency_code": "pkr", "amount": 349999 },
+              { "currency_code": "usd", "amount": 859 }
+            ],
+            "manage_inventory": true
+          }
+        ],
+        "metadata": {
+          "brand": "Samsung",
+          "release_year": 2024,
+          "warranty_months": 12
+        }
+      }
+    },
+    {
+      "step": 4,
+      "name": "Samsung Galaxy Z Fold 5",
+      "endpoint": "POST /api/v1/products",
+      "body": {
+        "title": "Samsung Galaxy Z Fold 5",
+        "subtitle": "Unfold your world",
+        "handle": "samsung-galaxy-z-fold-5",
+        "description": "Galaxy Z Fold 5 features a 7.6-inch foldable display, Flex Mode, Snapdragon 8 Gen 2, and multitasking capabilities.",
+        "status": "published",
+        "thumbnail": "https://example.com/images/galaxy-z-fold-5.jpg",
+        "categories": ["{{galaxy_phones_category_id}}"],
+        "collection_id": "{{flagship_phones_collection_id}}",
+        "options": [
+          {
+            "title": "Storage",
+            "values": ["256GB", "512GB", "1TB"]
+          },
+          {
+            "title": "Color",
+            "values": ["Phantom Black", "Icy Blue", "Cream"]
+          }
+        ],
+        "variants": [
+          {
+            "title": "256GB / Phantom Black",
+            "sku": "ZFOLD5-256-BLK",
+            "options": { "Storage": "256GB", "Color": "Phantom Black" },
+            "prices": [
+              { "currency_code": "pkr", "amount": 649999 },
+              { "currency_code": "usd", "amount": 1799 }
+            ],
+            "manage_inventory": true
+          },
+          {
+            "title": "512GB / Icy Blue",
+            "sku": "ZFOLD5-512-BLU",
+            "options": { "Storage": "512GB", "Color": "Icy Blue" },
+            "prices": [
+              { "currency_code": "pkr", "amount": 699999 },
+              { "currency_code": "usd", "amount": 1919 }
+            ],
+            "manage_inventory": true
+          },
+          {
+            "title": "1TB / Cream",
+            "sku": "ZFOLD5-1TB-CRM",
+            "options": { "Storage": "1TB", "Color": "Cream" },
+            "prices": [
+              { "currency_code": "pkr", "amount": 799999 },
+              { "currency_code": "usd", "amount": 2159 }
+            ],
+            "manage_inventory": true
+          }
+        ],
+        "metadata": {
+          "brand": "Samsung",
+          "release_year": 2023,
+          "warranty_months": 12
+        }
+      }
+    },
+    {
+      "step": 5,
+      "name": "Samsung Galaxy Buds 2 Pro",
+      "endpoint": "POST /api/v1/products",
+      "body": {
+        "title": "Samsung Galaxy Buds 2 Pro",
+        "subtitle": "Immersive sound. Iconic design.",
+        "handle": "samsung-galaxy-buds-2-pro",
+        "description": "Galaxy Buds 2 Pro with 24-bit Hi-Fi audio, Active Noise Cancellation, 360 Audio, and seamless Galaxy ecosystem integration.",
+        "status": "published",
+        "thumbnail": "https://example.com/images/galaxy-buds-2-pro.jpg",
+        "categories": ["{{samsung_accessories_category_id}}"],
+        "collection_id": "{{best_sellers_collection_id}}",
+        "options": [
+          {
+            "title": "Color",
+            "values": ["Graphite", "White", "Bora Purple"]
+          }
+        ],
+        "variants": [
+          {
+            "title": "Graphite",
+            "sku": "BUDS2PRO-GRP",
+            "options": { "Color": "Graphite" },
+            "prices": [
+              { "currency_code": "pkr", "amount": 54999 },
+              { "currency_code": "usd", "amount": 229 }
+            ],
+            "manage_inventory": true
+          },
+          {
+            "title": "White",
+            "sku": "BUDS2PRO-WHT",
+            "options": { "Color": "White" },
+            "prices": [
+              { "currency_code": "pkr", "amount": 54999 },
+              { "currency_code": "usd", "amount": 229 }
+            ],
+            "manage_inventory": true
+          },
+          {
+            "title": "Bora Purple",
+            "sku": "BUDS2PRO-PRP",
+            "options": { "Color": "Bora Purple" },
+            "prices": [
+              { "currency_code": "pkr", "amount": 54999 },
+              { "currency_code": "usd", "amount": 229 }
+            ],
+            "manage_inventory": true
+          }
+        ],
+        "metadata": {
+          "brand": "Samsung",
+          "release_year": 2022,
+          "warranty_months": 12
+        }
+      }
+    }
+  ]
+}

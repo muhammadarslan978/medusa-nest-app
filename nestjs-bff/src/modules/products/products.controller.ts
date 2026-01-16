@@ -11,7 +11,7 @@ export class ProductsController {
   constructor(private readonly productsService: ProductsService) {}
 
   @Get()
-  @ApiOperation({ summary: 'Get all products' })
+  @ApiOperation({ summary: 'Get all products (Store API - requires sales channel link)' })
   @ApiResponse({
     status: 200,
     description: 'List of products retrieved successfully',
@@ -19,6 +19,22 @@ export class ProductsController {
   })
   async getProducts(@Query() query: GetProductsDto): Promise<ProductsListResponseDto> {
     return this.productsService.getProducts(query);
+  }
+
+  @Get('admin')
+  @ApiBearerAuth()
+  @ApiOperation({ summary: 'Get all products (Admin API - returns all products)' })
+  @ApiResponse({
+    status: 200,
+    description: 'List of all products retrieved successfully',
+    type: ProductsListResponseDto,
+  })
+  @ApiResponse({ status: 401, description: 'Unauthorized - Admin token required' })
+  async getAdminProducts(
+    @Query() query: GetProductsDto,
+    @Headers('authorization') authHeader: string,
+  ): Promise<ProductsListResponseDto> {
+    return this.productsService.getAdminProducts(query, authHeader);
   }
 
   @Get(':id')
@@ -97,5 +113,53 @@ export class ProductsController {
     @Headers('authorization') authHeader: string,
   ): Promise<{ id: string; deleted: boolean }> {
     return this.productsService.deleteProduct(id, authHeader);
+  }
+
+  @Put(':id/categories')
+  @ApiBearerAuth()
+  @ApiOperation({ summary: 'Update product categories (Admin only)' })
+  @ApiParam({ name: 'id', description: 'Product ID' })
+  @ApiResponse({
+    status: 200,
+    description: 'Product categories updated successfully',
+    type: ProductResponseDto,
+  })
+  @ApiResponse({ status: 401, description: 'Unauthorized - Admin token required' })
+  async updateProductCategories(
+    @Param('id') id: string,
+    @Body() body: { category_ids: string[] },
+    @Headers('authorization') authHeader: string,
+  ): Promise<ProductResponseDto> {
+    return this.productsService.updateProductCategories(id, body.category_ids, authHeader);
+  }
+
+  @Get('category/:categoryId')
+  @ApiOperation({ summary: 'Get products by category' })
+  @ApiParam({ name: 'categoryId', description: 'Category ID' })
+  @ApiResponse({
+    status: 200,
+    description: 'Products retrieved successfully',
+    type: ProductsListResponseDto,
+  })
+  async getProductsByCategory(
+    @Param('categoryId') categoryId: string,
+    @Query() query: GetProductsDto,
+  ): Promise<ProductsListResponseDto> {
+    return this.productsService.getProductsByCategory(categoryId, query);
+  }
+
+  @Get('collection/:collectionId')
+  @ApiOperation({ summary: 'Get products by collection' })
+  @ApiParam({ name: 'collectionId', description: 'Collection ID' })
+  @ApiResponse({
+    status: 200,
+    description: 'Products retrieved successfully',
+    type: ProductsListResponseDto,
+  })
+  async getProductsByCollection(
+    @Param('collectionId') collectionId: string,
+    @Query() query: GetProductsDto,
+  ): Promise<ProductsListResponseDto> {
+    return this.productsService.getProductsByCollection(collectionId, query);
   }
 }

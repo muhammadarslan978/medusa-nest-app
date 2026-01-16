@@ -1,0 +1,155 @@
+{
+  "description": "Product Categories Setup - Execute in order",
+  "sales_channel": {
+    "id": "sc_01KF0HA17R96P1CSEW8SB5RVF4",
+    "name": "Rox Mobile App"
+  },
+  "categories": [
+    {
+      "step": 1,
+      "type": "parent",
+      "endpoint": "POST /api/v1/categories",
+      "body": {
+        "name": "Apple",
+        "handle": "apple",
+        "description": "All Apple products including iPhones, MacBooks, iPads, and accessories",
+        "is_active": true,
+        "is_internal": false,
+        "metadata": {
+          "brand": "Apple",
+          "logo_url": "https://example.com/apple-logo.png",
+          "country": "USA"
+        }
+      }
+    },
+    {
+      "step": 2,
+      "type": "parent",
+      "endpoint": "POST /api/v1/categories",
+      "body": {
+        "name": "Samsung",
+        "handle": "samsung",
+        "description": "All Samsung products including Galaxy phones, tablets, and accessories",
+        "is_active": true,
+        "is_internal": false,
+        "metadata": {
+          "brand": "Samsung",
+          "logo_url": "https://example.com/samsung-logo.png",
+          "country": "South Korea"
+        }
+      }
+    },
+    {
+      "step": 3,
+      "type": "child",
+      "parent": "Apple",
+      "endpoint": "POST /api/v1/categories",
+      "body": {
+        "name": "iPhones",
+        "handle": "iphones",
+        "description": "Apple iPhone smartphones",
+        "is_active": true,
+        "parent_category_id": "{{apple_category_id}}",
+        "metadata": {
+          "product_type": "smartphone"
+        }
+      }
+    },
+    {
+      "step": 4,
+      "type": "child",
+      "parent": "Apple",
+      "endpoint": "POST /api/v1/categories",
+      "body": {
+        "name": "MacBooks",
+        "handle": "macbooks",
+        "description": "Apple MacBook laptops",
+        "is_active": true,
+        "parent_category_id": "{{apple_category_id}}",
+        "metadata": {
+          "product_type": "laptop"
+        }
+      }
+    },
+    {
+      "step": 5,
+      "type": "child",
+      "parent": "Apple",
+      "endpoint": "POST /api/v1/categories",
+      "body": {
+        "name": "iPads",
+        "handle": "ipads",
+        "description": "Apple iPad tablets",
+        "is_active": true,
+        "parent_category_id": "{{apple_category_id}}",
+        "metadata": {
+          "product_type": "tablet"
+        }
+      }
+    },
+    {
+      "step": 6,
+      "type": "child",
+      "parent": "Apple",
+      "endpoint": "POST /api/v1/categories",
+      "body": {
+        "name": "Apple Accessories",
+        "handle": "apple-accessories",
+        "description": "Apple accessories including AirPods, chargers, and cases",
+        "is_active": true,
+        "parent_category_id": "{{apple_category_id}}",
+        "metadata": {
+          "product_type": "accessory"
+        }
+      }
+    },
+    {
+      "step": 7,
+      "type": "child",
+      "parent": "Samsung",
+      "endpoint": "POST /api/v1/categories",
+      "body": {
+        "name": "Galaxy Phones",
+        "handle": "galaxy-phones",
+        "description": "Samsung Galaxy smartphones",
+        "is_active": true,
+        "parent_category_id": "{{samsung_category_id}}",
+        "metadata": {
+          "product_type": "smartphone"
+        }
+      }
+    },
+    {
+      "step": 8,
+      "type": "child",
+      "parent": "Samsung",
+      "endpoint": "POST /api/v1/categories",
+      "body": {
+        "name": "Galaxy Tablets",
+        "handle": "galaxy-tablets",
+        "description": "Samsung Galaxy Tab tablets",
+        "is_active": true,
+        "parent_category_id": "{{samsung_category_id}}",
+        "metadata": {
+          "product_type": "tablet"
+        }
+      }
+    },
+    {
+      "step": 9,
+      "type": "child",
+      "parent": "Samsung",
+      "endpoint": "POST /api/v1/categories",
+      "body": {
+        "name": "Samsung Accessories",
+        "handle": "samsung-accessories",
+        "description": "Samsung accessories including Galaxy Buds, chargers, and cases",
+        "is_active": true,
+        "parent_category_id": "{{samsung_category_id}}",
+        "metadata": {
+          "product_type": "accessory"
+        }
+      }
+    }
+  ]
+}
