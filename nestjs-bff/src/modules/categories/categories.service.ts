@@ -329,4 +329,61 @@ export class CategoriesService {
 
     return response.product_categories.map((cat) => this.transformCategory(cat));
   }
+
+  /**
+   * List all product categories (public - no auth required)
+   */
+  async listCategoriesPublic(query: ListCategoriesQueryDto): Promise<{
+    categories: CategoryResponseDto[];
+    count: number;
+    offset: number;
+    limit: number;
+  }> {
+    const queryParams: Record<string, string | number | boolean | undefined> = {
+      offset: query.offset ?? 0,
+      limit: query.limit ?? 50,
+    };
+
+    if (query.q) {
+      queryParams.q = query.q;
+    }
+
+    if (query.parent_category_id) {
+      queryParams.parent_category_id = query.parent_category_id;
+    }
+
+    if (query.include_descendants_tree) {
+      queryParams.include_descendants_tree = true;
+    }
+
+    const response = await this.medusaService.storeRequest<CategoriesListResponse>(
+      '/product-categories',
+      { query: queryParams },
+    );
+
+    return {
+      categories: response.product_categories.map((cat) => this.transformCategory(cat)),
+      count: response.count,
+      offset: response.offset,
+      limit: response.limit,
+    };
+  }
+
+  /**
+   * Get category tree (public - no auth required)
+   */
+  async getCategoryTreePublic(): Promise<CategoryResponseDto[]> {
+    const response = await this.medusaService.storeRequest<CategoriesListResponse>(
+      '/product-categories',
+      {
+        query: {
+          parent_category_id: 'null',
+          include_descendants_tree: true,
+          limit: 100,
+        },
+      },
+    );
+
+    return response.product_categories.map((cat) => this.transformCategory(cat));
+  }
 }

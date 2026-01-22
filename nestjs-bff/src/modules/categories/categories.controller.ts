@@ -28,31 +28,24 @@ export class CategoriesController {
   constructor(private readonly categoriesService: CategoriesService) {}
 
   @Get()
-  @ApiBearerAuth()
-  @ApiOperation({ summary: 'List all product categories' })
+  @ApiOperation({ summary: 'List all product categories (public)' })
   @ApiResponse({
     status: 200,
     description: 'Categories retrieved successfully',
     type: CategoryListApiResponseDto,
   })
-  @ApiResponse({ status: 401, description: 'Unauthorized' })
-  async listCategories(
-    @Query() query: ListCategoriesQueryDto,
-    @Headers('authorization') authHeader: string,
-  ) {
-    return this.categoriesService.listCategories(query, authHeader);
+  async listCategories(@Query() query: ListCategoriesQueryDto) {
+    return this.categoriesService.listCategoriesPublic(query);
   }
 
   @Get('tree')
-  @ApiBearerAuth()
-  @ApiOperation({ summary: 'Get category tree (hierarchical structure)' })
+  @ApiOperation({ summary: 'Get category tree (hierarchical structure) (public)' })
   @ApiResponse({
     status: 200,
     description: 'Category tree retrieved successfully',
   })
-  @ApiResponse({ status: 401, description: 'Unauthorized' })
-  async getCategoryTree(@Headers('authorization') authHeader: string) {
-    const categories = await this.categoriesService.getCategoryTree(authHeader);
+  async getCategoryTree() {
+    const categories = await this.categoriesService.getCategoryTreePublic();
     return { categories };
   }
 
