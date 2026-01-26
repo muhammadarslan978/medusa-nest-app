@@ -1,5 +1,6 @@
 {
-  "description": "Product Categories Setup - Execute in order",
+  "description": "Product Categories Setup - Execute in order. Categories support banner_image, thumbnail, and icon in metadata.",
+  "image_base_url": "https://cdn.roxstore.pk/categories",
   "sales_channel": {
     "id": "sc_01KF0HA17R96P1CSEW8SB5RVF4",
     "name": "Rox Mobile App"
@@ -17,8 +18,13 @@
         "is_internal": false,
         "metadata": {
           "brand": "Apple",
-          "logo_url": "https://example.com/apple-logo.png",
-          "country": "USA"
+          "country": "USA",
+          "icon": "https://cdn.roxstore.pk/categories/apple/icon.png",
+          "thumbnail": "https://cdn.roxstore.pk/categories/apple/thumbnail.jpg",
+          "banner_image": "https://cdn.roxstore.pk/categories/apple/banner.jpg",
+          "banner_image_mobile": "https://cdn.roxstore.pk/categories/apple/banner-mobile.jpg",
+          "display_order": 1,
+          "featured": true
         }
       }
     },
@@ -34,8 +40,13 @@
         "is_internal": false,
         "metadata": {
           "brand": "Samsung",
-          "logo_url": "https://example.com/samsung-logo.png",
-          "country": "South Korea"
+          "country": "South Korea",
+          "icon": "https://cdn.roxstore.pk/categories/samsung/icon.png",
+          "thumbnail": "https://cdn.roxstore.pk/categories/samsung/thumbnail.jpg",
+          "banner_image": "https://cdn.roxstore.pk/categories/samsung/banner.jpg",
+          "banner_image_mobile": "https://cdn.roxstore.pk/categories/samsung/banner-mobile.jpg",
+          "display_order": 2,
+          "featured": true
         }
       }
     },
@@ -47,11 +58,17 @@
       "body": {
         "name": "iPhones",
         "handle": "iphones",
-        "description": "Apple iPhone smartphones",
+        "description": "Apple iPhone smartphones - Latest models with cutting-edge technology",
         "is_active": true,
         "parent_category_id": "{{apple_category_id}}",
         "metadata": {
-          "product_type": "smartphone"
+          "product_type": "smartphone",
+          "icon": "https://cdn.roxstore.pk/categories/apple/iphones/icon.png",
+          "thumbnail": "https://cdn.roxstore.pk/categories/apple/iphones/thumbnail.jpg",
+          "banner_image": "https://cdn.roxstore.pk/categories/apple/iphones/banner.jpg",
+          "banner_image_mobile": "https://cdn.roxstore.pk/categories/apple/iphones/banner-mobile.jpg",
+          "display_order": 1,
+          "featured": true
         }
       }
     },
@@ -63,11 +80,17 @@
       "body": {
         "name": "MacBooks",
         "handle": "macbooks",
-        "description": "Apple MacBook laptops",
+        "description": "Apple MacBook laptops - Pro and Air series with M-series chips",
         "is_active": true,
         "parent_category_id": "{{apple_category_id}}",
         "metadata": {
-          "product_type": "laptop"
+          "product_type": "laptop",
+          "icon": "https://cdn.roxstore.pk/categories/apple/macbooks/icon.png",
+          "thumbnail": "https://cdn.roxstore.pk/categories/apple/macbooks/thumbnail.jpg",
+          "banner_image": "https://cdn.roxstore.pk/categories/apple/macbooks/banner.jpg",
+          "banner_image_mobile": "https://cdn.roxstore.pk/categories/apple/macbooks/banner-mobile.jpg",
+          "display_order": 2,
+          "featured": true
         }
       }
     },
@@ -79,11 +102,17 @@
       "body": {
         "name": "iPads",
         "handle": "ipads",
-        "description": "Apple iPad tablets",
+        "description": "Apple iPad tablets - Pro, Air, and standard models",
         "is_active": true,
         "parent_category_id": "{{apple_category_id}}",
         "metadata": {
-          "product_type": "tablet"
+          "product_type": "tablet",
+          "icon": "https://cdn.roxstore.pk/categories/apple/ipads/icon.png",
+          "thumbnail": "https://cdn.roxstore.pk/categories/apple/ipads/thumbnail.jpg",
+          "banner_image": "https://cdn.roxstore.pk/categories/apple/ipads/banner.jpg",
+          "banner_image_mobile": "https://cdn.roxstore.pk/categories/apple/ipads/banner-mobile.jpg",
+          "display_order": 3,
+          "featured": false
         }
       }
     },
@@ -95,11 +124,17 @@
       "body": {
         "name": "Apple Accessories",
         "handle": "apple-accessories",
-        "description": "Apple accessories including AirPods, chargers, and cases",
+        "description": "Apple accessories including AirPods, Apple Watch, chargers, and cases",
         "is_active": true,
         "parent_category_id": "{{apple_category_id}}",
         "metadata": {
-          "product_type": "accessory"
+          "product_type": "accessory",
+          "icon": "https://cdn.roxstore.pk/categories/apple/accessories/icon.png",
+          "thumbnail": "https://cdn.roxstore.pk/categories/apple/accessories/thumbnail.jpg",
+          "banner_image": "https://cdn.roxstore.pk/categories/apple/accessories/banner.jpg",
+          "banner_image_mobile": "https://cdn.roxstore.pk/categories/apple/accessories/banner-mobile.jpg",
+          "display_order": 4,
+          "featured": false
         }
       }
     },
@@ -111,11 +146,17 @@
       "body": {
         "name": "Galaxy Phones",
         "handle": "galaxy-phones",
-        "description": "Samsung Galaxy smartphones",
+        "description": "Samsung Galaxy smartphones - S series, Z Fold, Z Flip, and A series",
         "is_active": true,
         "parent_category_id": "{{samsung_category_id}}",
         "metadata": {
-          "product_type": "smartphone"
+          "product_type": "smartphone",
+          "icon": "https://cdn.roxstore.pk/categories/samsung/phones/icon.png",
+          "thumbnail": "https://cdn.roxstore.pk/categories/samsung/phones/thumbnail.jpg",
+          "banner_image": "https://cdn.roxstore.pk/categories/samsung/phones/banner.jpg",
+          "banner_image_mobile": "https://cdn.roxstore.pk/categories/samsung/phones/banner-mobile.jpg",
+          "display_order": 1,
+          "featured": true
         }
       }
     },
@@ -127,11 +168,17 @@
       "body": {
         "name": "Galaxy Tablets",
         "handle": "galaxy-tablets",
-        "description": "Samsung Galaxy Tab tablets",
+        "description": "Samsung Galaxy Tab tablets - Tab S series and Tab A series",
         "is_active": true,
         "parent_category_id": "{{samsung_category_id}}",
         "metadata": {
-          "product_type": "tablet"
+          "product_type": "tablet",
+          "icon": "https://cdn.roxstore.pk/categories/samsung/tablets/icon.png",
+          "thumbnail": "https://cdn.roxstore.pk/categories/samsung/tablets/thumbnail.jpg",
+          "banner_image": "https://cdn.roxstore.pk/categories/samsung/tablets/banner.jpg",
+          "banner_image_mobile": "https://cdn.roxstore.pk/categories/samsung/tablets/banner-mobile.jpg",
+          "display_order": 2,
+          "featured": false
         }
       }
     },
@@ -143,11 +190,17 @@
       "body": {
         "name": "Samsung Accessories",
         "handle": "samsung-accessories",
-        "description": "Samsung accessories including Galaxy Buds, chargers, and cases",
+        "description": "Samsung accessories including Galaxy Buds, Galaxy Watch, chargers, and cases",
         "is_active": true,
         "parent_category_id": "{{samsung_category_id}}",
         "metadata": {
-          "product_type": "accessory"
+          "product_type": "accessory",
+          "icon": "https://cdn.roxstore.pk/categories/samsung/accessories/icon.png",
+          "thumbnail": "https://cdn.roxstore.pk/categories/samsung/accessories/thumbnail.jpg",
+          "banner_image": "https://cdn.roxstore.pk/categories/samsung/accessories/banner.jpg",
+          "banner_image_mobile": "https://cdn.roxstore.pk/categories/samsung/accessories/banner-mobile.jpg",
+          "display_order": 3,
+          "featured": false
         }
       }
     }

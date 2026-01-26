@@ -10,4 +10,9 @@ export class CreateCartDto {
   @IsOptional()
   @IsString()
   countryCode?: string;
+
+  @ApiPropertyOptional({ description: 'Sales channel ID' })
+  @IsOptional()
+  @IsString()
+  salesChannelId?: string;
 }

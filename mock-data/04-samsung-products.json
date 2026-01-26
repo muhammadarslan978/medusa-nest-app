@@ -1,5 +1,6 @@
 {
-  "description": "Samsung Products - Execute after categories are created",
+  "description": "Samsung Products - Execute after categories are created. Products include thumbnail, gallery images, and variant-specific images.",
+  "image_base_url": "https://cdn.roxstore.pk/products",
   "brand": "Samsung",
   "products": [
     {
@@ -12,11 +13,23 @@
         "handle": "samsung-galaxy-s24-ultra",
         "description": "Galaxy S24 Ultra features a titanium frame, 200MP camera, S Pen, Snapdragon 8 Gen 3, and Galaxy AI. The most powerful Galaxy smartphone.",
         "status": "published",
-        "thumbnail": "https://example.com/images/galaxy-s24-ultra.jpg",
+        "thumbnail": "https://cdn.roxstore.pk/products/samsung/galaxy-s24-ultra/thumbnail.jpg",
         "images": [
-          "https://example.com/images/galaxy-s24-ultra-1.jpg",
-          "https://example.com/images/galaxy-s24-ultra-2.jpg",
-          "https://example.com/images/galaxy-s24-ultra-3.jpg"
+          {
+            "url": "https://cdn.roxstore.pk/products/samsung/galaxy-s24-ultra/gallery-1.jpg"
+          },
+          {
+            "url": "https://cdn.roxstore.pk/products/samsung/galaxy-s24-ultra/gallery-2.jpg"
+          },
+          {
+            "url": "https://cdn.roxstore.pk/products/samsung/galaxy-s24-ultra/gallery-3.jpg"
+          },
+          {
+            "url": "https://cdn.roxstore.pk/products/samsung/galaxy-s24-ultra/gallery-4.jpg"
+          },
+          {
+            "url": "https://cdn.roxstore.pk/products/samsung/galaxy-s24-ultra/gallery-5.jpg"
+          }
         ],
         "categories": ["{{galaxy_phones_category_id}}"],
         "collection_id": "{{flagship_phones_collection_id}}",
@@ -45,7 +58,13 @@
               { "currency_code": "usd", "amount": 1299 }
             ],
             "manage_inventory": true,
-            "allow_backorder": false
+            "allow_backorder": false,
+            "metadata": {
+              "images": [
+                "https://cdn.roxstore.pk/products/samsung/galaxy-s24-ultra/titanium-black-1.jpg",
+                "https://cdn.roxstore.pk/products/samsung/galaxy-s24-ultra/titanium-black-2.jpg"
+              ]
+            }
           },
           {
             "title": "256GB / Titanium Violet",
@@ -56,7 +75,13 @@
               { "currency_code": "usd", "amount": 1299 }
             ],
             "manage_inventory": true,
-            "allow_backorder": false
+            "allow_backorder": false,
+            "metadata": {
+              "images": [
+                "https://cdn.roxstore.pk/products/samsung/galaxy-s24-ultra/titanium-violet-1.jpg",
+                "https://cdn.roxstore.pk/products/samsung/galaxy-s24-ultra/titanium-violet-2.jpg"
+              ]
+            }
           },
           {
             "title": "512GB / Titanium Gray",
@@ -67,7 +92,13 @@
               { "currency_code": "usd", "amount": 1419 }
             ],
             "manage_inventory": true,
-            "allow_backorder": false
+            "allow_backorder": false,
+            "metadata": {
+              "images": [
+                "https://cdn.roxstore.pk/products/samsung/galaxy-s24-ultra/titanium-gray-1.jpg",
+                "https://cdn.roxstore.pk/products/samsung/galaxy-s24-ultra/titanium-gray-2.jpg"
+              ]
+            }
           },
           {
             "title": "1TB / Titanium Black",
@@ -78,13 +109,32 @@
               { "currency_code": "usd", "amount": 1659 }
             ],
             "manage_inventory": true,
-            "allow_backorder": false
+            "allow_backorder": false,
+            "metadata": {
+              "images": [
+                "https://cdn.roxstore.pk/products/samsung/galaxy-s24-ultra/titanium-black-1.jpg",
+                "https://cdn.roxstore.pk/products/samsung/galaxy-s24-ultra/titanium-black-2.jpg"
+              ]
+            }
           }
         ],
         "metadata": {
           "brand": "Samsung",
           "release_year": 2024,
-          "warranty_months": 12
+          "warranty_months": 12,
+          "highlights": [
+            "200MP camera",
+            "S Pen included",
+            "Snapdragon 8 Gen 3",
+            "Galaxy AI",
+            "Titanium frame"
+          ],
+          "specifications": {
+            "display": "6.8-inch Dynamic AMOLED 2X",
+            "processor": "Snapdragon 8 Gen 3",
+            "camera": "200MP Main + 12MP Ultra Wide + 50MP Telephoto + 10MP Telephoto",
+            "battery": "5000mAh with 45W fast charging"
+          }
         }
       }
     },
@@ -98,7 +148,21 @@
         "handle": "samsung-galaxy-s24-plus",
         "description": "Galaxy S24+ features a 6.7-inch Dynamic AMOLED display, Snapdragon 8 Gen 3, 50MP camera, and Galaxy AI capabilities.",
         "status": "published",
-        "thumbnail": "https://example.com/images/galaxy-s24-plus.jpg",
+        "thumbnail": "https://cdn.roxstore.pk/products/samsung/galaxy-s24-plus/thumbnail.jpg",
+        "images": [
+          {
+            "url": "https://cdn.roxstore.pk/products/samsung/galaxy-s24-plus/gallery-1.jpg"
+          },
+          {
+            "url": "https://cdn.roxstore.pk/products/samsung/galaxy-s24-plus/gallery-2.jpg"
+          },
+          {
+            "url": "https://cdn.roxstore.pk/products/samsung/galaxy-s24-plus/gallery-3.jpg"
+          },
+          {
+            "url": "https://cdn.roxstore.pk/products/samsung/galaxy-s24-plus/gallery-4.jpg"
+          }
+        ],
         "categories": ["{{galaxy_phones_category_id}}"],
         "collection_id": "{{flagship_phones_collection_id}}",
         "options": [
@@ -125,7 +189,13 @@
               { "currency_code": "pkr", "amount": 399999 },
               { "currency_code": "usd", "amount": 999 }
             ],
-            "manage_inventory": true
+            "manage_inventory": true,
+            "metadata": {
+              "images": [
+                "https://cdn.roxstore.pk/products/samsung/galaxy-s24-plus/onyx-black-1.jpg",
+                "https://cdn.roxstore.pk/products/samsung/galaxy-s24-plus/onyx-black-2.jpg"
+              ]
+            }
           },
           {
             "title": "256GB / Cobalt Violet",
@@ -135,7 +205,13 @@
               { "currency_code": "pkr", "amount": 399999 },
               { "currency_code": "usd", "amount": 999 }
             ],
-            "manage_inventory": true
+            "manage_inventory": true,
+            "metadata": {
+              "images": [
+                "https://cdn.roxstore.pk/products/samsung/galaxy-s24-plus/cobalt-violet-1.jpg",
+                "https://cdn.roxstore.pk/products/samsung/galaxy-s24-plus/cobalt-violet-2.jpg"
+              ]
+            }
           },
           {
             "title": "512GB / Marble Gray",
@@ -145,13 +221,31 @@
               { "currency_code": "pkr", "amount": 449999 },
               { "currency_code": "usd", "amount": 1119 }
             ],
-            "manage_inventory": true
+            "manage_inventory": true,
+            "metadata": {
+              "images": [
+                "https://cdn.roxstore.pk/products/samsung/galaxy-s24-plus/marble-gray-1.jpg",
+                "https://cdn.roxstore.pk/products/samsung/galaxy-s24-plus/marble-gray-2.jpg"
+              ]
+            }
           }
         ],
         "metadata": {
           "brand": "Samsung",
           "release_year": 2024,
-          "warranty_months": 12
+          "warranty_months": 12,
+          "highlights": [
+            "6.7-inch display",
+            "Snapdragon 8 Gen 3",
+            "50MP camera",
+            "Galaxy AI"
+          ],
+          "specifications": {
+            "display": "6.7-inch Dynamic AMOLED 2X",
+            "processor": "Snapdragon 8 Gen 3",
+            "camera": "50MP Main + 12MP Ultra Wide + 10MP Telephoto",
+            "battery": "4900mAh with 45W fast charging"
+          }
         }
       }
     },
@@ -165,7 +259,18 @@
         "handle": "samsung-galaxy-s24",
         "description": "Galaxy S24 features a compact 6.2-inch display, Exynos 2400, 50MP camera, and full Galaxy AI experience.",
         "status": "published",
-        "thumbnail": "https://example.com/images/galaxy-s24.jpg",
+        "thumbnail": "https://cdn.roxstore.pk/products/samsung/galaxy-s24/thumbnail.jpg",
+        "images": [
+          {
+            "url": "https://cdn.roxstore.pk/products/samsung/galaxy-s24/gallery-1.jpg"
+          },
+          {
+            "url": "https://cdn.roxstore.pk/products/samsung/galaxy-s24/gallery-2.jpg"
+          },
+          {
+            "url": "https://cdn.roxstore.pk/products/samsung/galaxy-s24/gallery-3.jpg"
+          }
+        ],
         "categories": ["{{galaxy_phones_category_id}}"],
         "collection_id": "{{new_arrivals_collection_id}}",
         "options": [
@@ -192,7 +297,13 @@
               { "currency_code": "pkr", "amount": 299999 },
               { "currency_code": "usd", "amount": 799 }
             ],
-            "manage_inventory": true
+            "manage_inventory": true,
+            "metadata": {
+              "images": [
+                "https://cdn.roxstore.pk/products/samsung/galaxy-s24/onyx-black-1.jpg",
+                "https://cdn.roxstore.pk/products/samsung/galaxy-s24/onyx-black-2.jpg"
+              ]
+            }
           },
           {
             "title": "128GB / Amber Yellow",
@@ -202,7 +313,13 @@
               { "currency_code": "pkr", "amount": 299999 },
               { "currency_code": "usd", "amount": 799 }
             ],
-            "manage_inventory": true
+            "manage_inventory": true,
+            "metadata": {
+              "images": [
+                "https://cdn.roxstore.pk/products/samsung/galaxy-s24/amber-yellow-1.jpg",
+                "https://cdn.roxstore.pk/products/samsung/galaxy-s24/amber-yellow-2.jpg"
+              ]
+            }
           },
           {
             "title": "256GB / Cobalt Violet",
@@ -212,13 +329,31 @@
               { "currency_code": "pkr", "amount": 349999 },
               { "currency_code": "usd", "amount": 859 }
             ],
-            "manage_inventory": true
+            "manage_inventory": true,
+            "metadata": {
+              "images": [
+                "https://cdn.roxstore.pk/products/samsung/galaxy-s24/cobalt-violet-1.jpg",
+                "https://cdn.roxstore.pk/products/samsung/galaxy-s24/cobalt-violet-2.jpg"
+              ]
+            }
           }
         ],
         "metadata": {
           "brand": "Samsung",
           "release_year": 2024,
-          "warranty_months": 12
+          "warranty_months": 12,
+          "highlights": [
+            "Compact design",
+            "Exynos 2400",
+            "50MP camera",
+            "Galaxy AI"
+          ],
+          "specifications": {
+            "display": "6.2-inch Dynamic AMOLED 2X",
+            "processor": "Exynos 2400",
+            "camera": "50MP Main + 12MP Ultra Wide + 10MP Telephoto",
+            "battery": "4000mAh with 25W fast charging"
+          }
         }
       }
     },
@@ -232,7 +367,24 @@
         "handle": "samsung-galaxy-z-fold-5",
         "description": "Galaxy Z Fold 5 features a 7.6-inch foldable display, Flex Mode, Snapdragon 8 Gen 2, and multitasking capabilities.",
         "status": "published",
-        "thumbnail": "https://example.com/images/galaxy-z-fold-5.jpg",
+        "thumbnail": "https://cdn.roxstore.pk/products/samsung/galaxy-z-fold-5/thumbnail.jpg",
+        "images": [
+          {
+            "url": "https://cdn.roxstore.pk/products/samsung/galaxy-z-fold-5/gallery-1.jpg"
+          },
+          {
+            "url": "https://cdn.roxstore.pk/products/samsung/galaxy-z-fold-5/gallery-2.jpg"
+          },
+          {
+            "url": "https://cdn.roxstore.pk/products/samsung/galaxy-z-fold-5/gallery-3.jpg"
+          },
+          {
+            "url": "https://cdn.roxstore.pk/products/samsung/galaxy-z-fold-5/gallery-4.jpg"
+          },
+          {
+            "url": "https://cdn.roxstore.pk/products/samsung/galaxy-z-fold-5/gallery-5.jpg"
+          }
+        ],
         "categories": ["{{galaxy_phones_category_id}}"],
         "collection_id": "{{flagship_phones_collection_id}}",
         "options": [
@@ -254,7 +406,13 @@
               { "currency_code": "pkr", "amount": 649999 },
               { "currency_code": "usd", "amount": 1799 }
             ],
-            "manage_inventory": true
+            "manage_inventory": true,
+            "metadata": {
+              "images": [
+                "https://cdn.roxstore.pk/products/samsung/galaxy-z-fold-5/phantom-black-1.jpg",
+                "https://cdn.roxstore.pk/products/samsung/galaxy-z-fold-5/phantom-black-2.jpg"
+              ]
+            }
           },
           {
             "title": "512GB / Icy Blue",
@@ -264,7 +422,13 @@
               { "currency_code": "pkr", "amount": 699999 },
               { "currency_code": "usd", "amount": 1919 }
             ],
-            "manage_inventory": true
+            "manage_inventory": true,
+            "metadata": {
+              "images": [
+                "https://cdn.roxstore.pk/products/samsung/galaxy-z-fold-5/icy-blue-1.jpg",
+                "https://cdn.roxstore.pk/products/samsung/galaxy-z-fold-5/icy-blue-2.jpg"
+              ]
+            }
           },
           {
             "title": "1TB / Cream",
@@ -274,13 +438,31 @@
               { "currency_code": "pkr", "amount": 799999 },
               { "currency_code": "usd", "amount": 2159 }
             ],
-            "manage_inventory": true
+            "manage_inventory": true,
+            "metadata": {
+              "images": [
+                "https://cdn.roxstore.pk/products/samsung/galaxy-z-fold-5/cream-1.jpg",
+                "https://cdn.roxstore.pk/products/samsung/galaxy-z-fold-5/cream-2.jpg"
+              ]
+            }
           }
         ],
         "metadata": {
           "brand": "Samsung",
           "release_year": 2023,
-          "warranty_months": 12
+          "warranty_months": 12,
+          "highlights": [
+            "7.6-inch foldable display",
+            "Flex Mode",
+            "Snapdragon 8 Gen 2",
+            "S Pen support"
+          ],
+          "specifications": {
+            "display": "7.6-inch Dynamic AMOLED 2X (Main), 6.2-inch (Cover)",
+            "processor": "Snapdragon 8 Gen 2",
+            "camera": "50MP Main + 12MP Ultra Wide + 10MP Telephoto",
+            "battery": "4400mAh with 25W fast charging"
+          }
         }
       }
     },
@@ -294,7 +476,18 @@
         "handle": "samsung-galaxy-buds-2-pro",
         "description": "Galaxy Buds 2 Pro with 24-bit Hi-Fi audio, Active Noise Cancellation, 360 Audio, and seamless Galaxy ecosystem integration.",
         "status": "published",
-        "thumbnail": "https://example.com/images/galaxy-buds-2-pro.jpg",
+        "thumbnail": "https://cdn.roxstore.pk/products/samsung/galaxy-buds-2-pro/thumbnail.jpg",
+        "images": [
+          {
+            "url": "https://cdn.roxstore.pk/products/samsung/galaxy-buds-2-pro/gallery-1.jpg"
+          },
+          {
+            "url": "https://cdn.roxstore.pk/products/samsung/galaxy-buds-2-pro/gallery-2.jpg"
+          },
+          {
+            "url": "https://cdn.roxstore.pk/products/samsung/galaxy-buds-2-pro/gallery-3.jpg"
+          }
+        ],
         "categories": ["{{samsung_accessories_category_id}}"],
         "collection_id": "{{best_sellers_collection_id}}",
         "options": [
@@ -312,7 +505,12 @@
               { "currency_code": "pkr", "amount": 54999 },
               { "currency_code": "usd", "amount": 229 }
             ],
-            "manage_inventory": true
+            "manage_inventory": true,
+            "metadata": {
+              "images": [
+                "https://cdn.roxstore.pk/products/samsung/galaxy-buds-2-pro/graphite-1.jpg"
+              ]
+            }
           },
           {
             "title": "White",
@@ -322,7 +520,12 @@
               { "currency_code": "pkr", "amount": 54999 },
               { "currency_code": "usd", "amount": 229 }
             ],
-            "manage_inventory": true
+            "manage_inventory": true,
+            "metadata": {
+              "images": [
+                "https://cdn.roxstore.pk/products/samsung/galaxy-buds-2-pro/white-1.jpg"
+              ]
+            }
           },
           {
             "title": "Bora Purple",
@@ -332,13 +535,30 @@
               { "currency_code": "pkr", "amount": 54999 },
               { "currency_code": "usd", "amount": 229 }
             ],
-            "manage_inventory": true
+            "manage_inventory": true,
+            "metadata": {
+              "images": [
+                "https://cdn.roxstore.pk/products/samsung/galaxy-buds-2-pro/bora-purple-1.jpg"
+              ]
+            }
           }
         ],
         "metadata": {
           "brand": "Samsung",
           "release_year": 2022,
-          "warranty_months": 12
+          "warranty_months": 12,
+          "highlights": [
+            "24-bit Hi-Fi audio",
+            "Active Noise Cancellation",
+            "360 Audio",
+            "IPX7 water resistance"
+          ],
+          "specifications": {
+            "driver": "Custom 2-way speaker",
+            "noise_cancellation": "Intelligent ANC",
+            "battery": "Up to 5 hours (ANC on)",
+            "case_battery": "Up to 18 hours total"
+          }
         }
       }
     }

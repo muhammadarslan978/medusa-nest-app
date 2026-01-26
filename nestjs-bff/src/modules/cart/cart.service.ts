@@ -15,12 +15,23 @@ export class CartService {
   constructor(private readonly medusaService: MedusaService) {}
 
   async createCart(createCartDto: CreateCartDto): Promise<CartResponseDto> {
+    const body: any = {
+      region_id: createCartDto.regionId,
+    };
+
+    // Only add country_code if provided
+    if (createCartDto.countryCode) {
+      body.country_code = createCartDto.countryCode;
+    }
+
+    // Add sales_channel_id if provided, otherwise use default
+    if (createCartDto.salesChannelId) {
+      body.sales_channel_id = createCartDto.salesChannelId;
+    }
+
     const response = await this.medusaService.storeRequest<CartResponse>('/carts', {
       method: 'POST',
-      body: {
-        region_id: createCartDto.regionId,
-        country_code: createCartDto.countryCode,
-      },
+      body,
     });
 
     return { cart: this.transformCart(response.cart) };
@@ -28,9 +39,7 @@ export class CartService {
 
   async getCart(cartId: string): Promise<CartResponseDto> {
     try {
-      const response = await this.medusaService.storeRequest<CartResponse>(
-        `/carts/${cartId}`,
-      );
+      const response = await this.medusaService.storeRequest<CartResponse>(`/carts/${cartId}`);
       return { cart: this.transformCart(response.cart) };
     } catch (error) {
       if ((error as { status?: number }).status === 404) {
@@ -40,10 +49,7 @@ export class CartService {
     }
   }
 
-  async addLineItem(
-    cartId: string,
-    addLineItemDto: AddLineItemDto,
-  ): Promise<CartResponseDto> {
+  async addLineItem(cartId: string, addLineItemDto: AddLineItemDto): Promise<CartResponseDto> {
     const response = await this.medusaService.storeRequest<CartResponse>(
       `/carts/${cartId}/line-items`,
       {
@@ -76,10 +82,7 @@ export class CartService {
     return { cart: this.transformCart(response.cart) };
   }
 
-  async removeLineItem(
-    cartId: string,
-    lineItemId: string,
-  ): Promise<CartResponseDto> {
+  async removeLineItem(cartId: string, lineItemId: string): Promise<CartResponseDto> {
     const response = await this.medusaService.storeRequest<CartResponse>(
       `/carts/${cartId}/line-items/${lineItemId}`,
       {
@@ -94,18 +97,19 @@ export class CartService {
     return {
       id: cart.id,
       email: cart.email,
-      items: cart.items?.map((item) => ({
-        id: item.id,
-        title: item.title,
-        description: item.description,
-        thumbnail: item.thumbnail,
-        quantity: item.quantity,
-        unitPrice: item.unit_price,
-        subtotal: item.subtotal,
-        total: item.total,
-        variantId: item.variant_id,
-        productId: item.product_id,
-      })) || [],
+      items:
+        cart.items?.map((item) => ({
+          id: item.id,
+          title: item.title,
+          description: item.description,
+          thumbnail: item.thumbnail,
+          quantity: item.quantity,
+          unitPrice: item.unit_price,
+          subtotal: item.subtotal,
+          total: item.total,
+          variantId: item.variant_id,
+          productId: item.product_id,
+        })) || [],
       regionId: cart.region_id,
       subtotal: cart.subtotal,
       discountTotal: cart.discount_total,

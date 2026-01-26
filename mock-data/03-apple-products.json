@@ -1,5 +1,6 @@
 {
-  "description": "Apple Products - Execute after categories are created",
+  "description": "Apple Products - Execute after categories are created. Products include thumbnail, gallery images, and variant-specific images.",
+  "image_base_url": "https://cdn.roxstore.pk/products",
   "brand": "Apple",
   "products": [
     {
@@ -12,11 +13,23 @@
         "handle": "iphone-15-pro-max",
         "description": "iPhone 15 Pro Max features a titanium design, A17 Pro chip, 48MP camera system with 5x optical zoom, and Action button. Available in Natural Titanium, Blue Titanium, White Titanium, and Black Titanium.",
         "status": "published",
-        "thumbnail": "https://example.com/images/iphone-15-pro-max.jpg",
+        "thumbnail": "https://cdn.roxstore.pk/products/apple/iphone-15-pro-max/thumbnail.jpg",
         "images": [
-          "https://example.com/images/iphone-15-pro-max-1.jpg",
-          "https://example.com/images/iphone-15-pro-max-2.jpg",
-          "https://example.com/images/iphone-15-pro-max-3.jpg"
+          {
+            "url": "https://cdn.roxstore.pk/products/apple/iphone-15-pro-max/gallery-1.jpg"
+          },
+          {
+            "url": "https://cdn.roxstore.pk/products/apple/iphone-15-pro-max/gallery-2.jpg"
+          },
+          {
+            "url": "https://cdn.roxstore.pk/products/apple/iphone-15-pro-max/gallery-3.jpg"
+          },
+          {
+            "url": "https://cdn.roxstore.pk/products/apple/iphone-15-pro-max/gallery-4.jpg"
+          },
+          {
+            "url": "https://cdn.roxstore.pk/products/apple/iphone-15-pro-max/gallery-5.jpg"
+          }
         ],
         "categories": ["{{iphones_category_id}}"],
         "collection_id": "{{flagship_phones_collection_id}}",
@@ -45,7 +58,13 @@
               { "currency_code": "usd", "amount": 1199 }
             ],
             "manage_inventory": true,
-            "allow_backorder": false
+            "allow_backorder": false,
+            "metadata": {
+              "images": [
+                "https://cdn.roxstore.pk/products/apple/iphone-15-pro-max/natural-titanium-1.jpg",
+                "https://cdn.roxstore.pk/products/apple/iphone-15-pro-max/natural-titanium-2.jpg"
+              ]
+            }
           },
           {
             "title": "256GB / Blue Titanium",
@@ -56,7 +75,13 @@
               { "currency_code": "usd", "amount": 1199 }
             ],
             "manage_inventory": true,
-            "allow_backorder": false
+            "allow_backorder": false,
+            "metadata": {
+              "images": [
+                "https://cdn.roxstore.pk/products/apple/iphone-15-pro-max/blue-titanium-1.jpg",
+                "https://cdn.roxstore.pk/products/apple/iphone-15-pro-max/blue-titanium-2.jpg"
+              ]
+            }
           },
           {
             "title": "512GB / Natural Titanium",
@@ -67,7 +92,13 @@
               { "currency_code": "usd", "amount": 1399 }
             ],
             "manage_inventory": true,
-            "allow_backorder": false
+            "allow_backorder": false,
+            "metadata": {
+              "images": [
+                "https://cdn.roxstore.pk/products/apple/iphone-15-pro-max/natural-titanium-1.jpg",
+                "https://cdn.roxstore.pk/products/apple/iphone-15-pro-max/natural-titanium-2.jpg"
+              ]
+            }
           },
           {
             "title": "512GB / Black Titanium",
@@ -78,7 +109,13 @@
               { "currency_code": "usd", "amount": 1399 }
             ],
             "manage_inventory": true,
-            "allow_backorder": false
+            "allow_backorder": false,
+            "metadata": {
+              "images": [
+                "https://cdn.roxstore.pk/products/apple/iphone-15-pro-max/black-titanium-1.jpg",
+                "https://cdn.roxstore.pk/products/apple/iphone-15-pro-max/black-titanium-2.jpg"
+              ]
+            }
           },
           {
             "title": "1TB / Natural Titanium",
@@ -89,13 +126,32 @@
               { "currency_code": "usd", "amount": 1599 }
             ],
             "manage_inventory": true,
-            "allow_backorder": false
+            "allow_backorder": false,
+            "metadata": {
+              "images": [
+                "https://cdn.roxstore.pk/products/apple/iphone-15-pro-max/natural-titanium-1.jpg",
+                "https://cdn.roxstore.pk/products/apple/iphone-15-pro-max/natural-titanium-2.jpg"
+              ]
+            }
           }
         ],
         "metadata": {
           "brand": "Apple",
           "release_year": 2023,
-          "warranty_months": 12
+          "warranty_months": 12,
+          "highlights": [
+            "A17 Pro chip",
+            "Titanium design",
+            "48MP camera",
+            "5x optical zoom",
+            "Action button"
+          ],
+          "specifications": {
+            "display": "6.7-inch Super Retina XDR",
+            "chip": "A17 Pro",
+            "camera": "48MP Main + 12MP Ultra Wide + 12MP Telephoto",
+            "battery": "Up to 29 hours video playback"
+          }
         }
       }
     },
@@ -109,10 +165,20 @@
         "handle": "iphone-15-pro",
         "description": "iPhone 15 Pro features a titanium design, A17 Pro chip, 48MP camera with 3x optical zoom, and Action button. Compact flagship performance.",
         "status": "published",
-        "thumbnail": "https://example.com/images/iphone-15-pro.jpg",
+        "thumbnail": "https://cdn.roxstore.pk/products/apple/iphone-15-pro/thumbnail.jpg",
         "images": [
-          "https://example.com/images/iphone-15-pro-1.jpg",
-          "https://example.com/images/iphone-15-pro-2.jpg"
+          {
+            "url": "https://cdn.roxstore.pk/products/apple/iphone-15-pro/gallery-1.jpg"
+          },
+          {
+            "url": "https://cdn.roxstore.pk/products/apple/iphone-15-pro/gallery-2.jpg"
+          },
+          {
+            "url": "https://cdn.roxstore.pk/products/apple/iphone-15-pro/gallery-3.jpg"
+          },
+          {
+            "url": "https://cdn.roxstore.pk/products/apple/iphone-15-pro/gallery-4.jpg"
+          }
         ],
         "categories": ["{{iphones_category_id}}"],
         "collection_id": "{{flagship_phones_collection_id}}",
@@ -140,7 +206,13 @@
               { "currency_code": "pkr", "amount": 449999 },
               { "currency_code": "usd", "amount": 999 }
             ],
-            "manage_inventory": true
+            "manage_inventory": true,
+            "metadata": {
+              "images": [
+                "https://cdn.roxstore.pk/products/apple/iphone-15-pro/natural-titanium-1.jpg",
+                "https://cdn.roxstore.pk/products/apple/iphone-15-pro/natural-titanium-2.jpg"
+              ]
+            }
           },
           {
             "title": "256GB / Blue Titanium",
@@ -150,7 +222,13 @@
               { "currency_code": "pkr", "amount": 499999 },
               { "currency_code": "usd", "amount": 1099 }
             ],
-            "manage_inventory": true
+            "manage_inventory": true,
+            "metadata": {
+              "images": [
+                "https://cdn.roxstore.pk/products/apple/iphone-15-pro/blue-titanium-1.jpg",
+                "https://cdn.roxstore.pk/products/apple/iphone-15-pro/blue-titanium-2.jpg"
+              ]
+            }
           },
           {
             "title": "512GB / Black Titanium",
@@ -160,13 +238,32 @@
               { "currency_code": "pkr", "amount": 599999 },
               { "currency_code": "usd", "amount": 1299 }
             ],
-            "manage_inventory": true
+            "manage_inventory": true,
+            "metadata": {
+              "images": [
+                "https://cdn.roxstore.pk/products/apple/iphone-15-pro/black-titanium-1.jpg",
+                "https://cdn.roxstore.pk/products/apple/iphone-15-pro/black-titanium-2.jpg"
+              ]
+            }
           }
         ],
         "metadata": {
           "brand": "Apple",
           "release_year": 2023,
-          "warranty_months": 12
+          "warranty_months": 12,
+          "highlights": [
+            "A17 Pro chip",
+            "Titanium design",
+            "48MP camera",
+            "3x optical zoom",
+            "Action button"
+          ],
+          "specifications": {
+            "display": "6.1-inch Super Retina XDR",
+            "chip": "A17 Pro",
+            "camera": "48MP Main + 12MP Ultra Wide + 12MP Telephoto",
+            "battery": "Up to 23 hours video playback"
+          }
         }
       }
     },
@@ -180,7 +277,18 @@
         "handle": "iphone-15",
         "description": "iPhone 15 features Dynamic Island, 48MP camera, A16 Bionic chip, and USB-C. Available in vibrant colors.",
         "status": "published",
-        "thumbnail": "https://example.com/images/iphone-15.jpg",
+        "thumbnail": "https://cdn.roxstore.pk/products/apple/iphone-15/thumbnail.jpg",
+        "images": [
+          {
+            "url": "https://cdn.roxstore.pk/products/apple/iphone-15/gallery-1.jpg"
+          },
+          {
+            "url": "https://cdn.roxstore.pk/products/apple/iphone-15/gallery-2.jpg"
+          },
+          {
+            "url": "https://cdn.roxstore.pk/products/apple/iphone-15/gallery-3.jpg"
+          }
+        ],
         "categories": ["{{iphones_category_id}}"],
         "collection_id": "{{new_arrivals_collection_id}}",
         "options": [
@@ -202,7 +310,13 @@
               { "currency_code": "pkr", "amount": 349999 },
               { "currency_code": "usd", "amount": 799 }
             ],
-            "manage_inventory": true
+            "manage_inventory": true,
+            "metadata": {
+              "images": [
+                "https://cdn.roxstore.pk/products/apple/iphone-15/pink-1.jpg",
+                "https://cdn.roxstore.pk/products/apple/iphone-15/pink-2.jpg"
+              ]
+            }
           },
           {
             "title": "128GB / Blue",
@@ -212,7 +326,13 @@
               { "currency_code": "pkr", "amount": 349999 },
               { "currency_code": "usd", "amount": 799 }
             ],
-            "manage_inventory": true
+            "manage_inventory": true,
+            "metadata": {
+              "images": [
+                "https://cdn.roxstore.pk/products/apple/iphone-15/blue-1.jpg",
+                "https://cdn.roxstore.pk/products/apple/iphone-15/blue-2.jpg"
+              ]
+            }
           },
           {
             "title": "256GB / Black",
@@ -222,13 +342,31 @@
               { "currency_code": "pkr", "amount": 399999 },
               { "currency_code": "usd", "amount": 899 }
             ],
-            "manage_inventory": true
+            "manage_inventory": true,
+            "metadata": {
+              "images": [
+                "https://cdn.roxstore.pk/products/apple/iphone-15/black-1.jpg",
+                "https://cdn.roxstore.pk/products/apple/iphone-15/black-2.jpg"
+              ]
+            }
           }
         ],
         "metadata": {
           "brand": "Apple",
           "release_year": 2023,
-          "warranty_months": 12
+          "warranty_months": 12,
+          "highlights": [
+            "Dynamic Island",
+            "48MP camera",
+            "A16 Bionic",
+            "USB-C"
+          ],
+          "specifications": {
+            "display": "6.1-inch Super Retina XDR",
+            "chip": "A16 Bionic",
+            "camera": "48MP Main + 12MP Ultra Wide",
+            "battery": "Up to 20 hours video playback"
+          }
         }
       }
     },
@@ -242,7 +380,21 @@
         "handle": "macbook-pro-14-m3-pro",
         "description": "MacBook Pro 14-inch with M3 Pro chip, up to 18 hours battery life, Liquid Retina XDR display, and advanced connectivity.",
         "status": "published",
-        "thumbnail": "https://example.com/images/macbook-pro-14.jpg",
+        "thumbnail": "https://cdn.roxstore.pk/products/apple/macbook-pro-14/thumbnail.jpg",
+        "images": [
+          {
+            "url": "https://cdn.roxstore.pk/products/apple/macbook-pro-14/gallery-1.jpg"
+          },
+          {
+            "url": "https://cdn.roxstore.pk/products/apple/macbook-pro-14/gallery-2.jpg"
+          },
+          {
+            "url": "https://cdn.roxstore.pk/products/apple/macbook-pro-14/gallery-3.jpg"
+          },
+          {
+            "url": "https://cdn.roxstore.pk/products/apple/macbook-pro-14/gallery-4.jpg"
+          }
+        ],
         "categories": ["{{macbooks_category_id}}"],
         "collection_id": "{{best_sellers_collection_id}}",
         "options": [
@@ -272,7 +424,13 @@
               { "currency_code": "pkr", "amount": 899999 },
               { "currency_code": "usd", "amount": 1999 }
             ],
-            "manage_inventory": true
+            "manage_inventory": true,
+            "metadata": {
+              "images": [
+                "https://cdn.roxstore.pk/products/apple/macbook-pro-14/space-black-1.jpg",
+                "https://cdn.roxstore.pk/products/apple/macbook-pro-14/space-black-2.jpg"
+              ]
+            }
           },
           {
             "title": "18GB / 1TB / Silver",
@@ -286,7 +444,13 @@
               { "currency_code": "pkr", "amount": 999999 },
               { "currency_code": "usd", "amount": 2199 }
             ],
-            "manage_inventory": true
+            "manage_inventory": true,
+            "metadata": {
+              "images": [
+                "https://cdn.roxstore.pk/products/apple/macbook-pro-14/silver-1.jpg",
+                "https://cdn.roxstore.pk/products/apple/macbook-pro-14/silver-2.jpg"
+              ]
+            }
           },
           {
             "title": "36GB / 1TB / Space Black",
@@ -300,13 +464,31 @@
               { "currency_code": "pkr", "amount": 1199999 },
               { "currency_code": "usd", "amount": 2599 }
             ],
-            "manage_inventory": true
+            "manage_inventory": true,
+            "metadata": {
+              "images": [
+                "https://cdn.roxstore.pk/products/apple/macbook-pro-14/space-black-1.jpg",
+                "https://cdn.roxstore.pk/products/apple/macbook-pro-14/space-black-2.jpg"
+              ]
+            }
           }
         ],
         "metadata": {
           "brand": "Apple",
           "release_year": 2023,
-          "warranty_months": 12
+          "warranty_months": 12,
+          "highlights": [
+            "M3 Pro chip",
+            "Liquid Retina XDR",
+            "18-hour battery",
+            "MagSafe charging"
+          ],
+          "specifications": {
+            "display": "14.2-inch Liquid Retina XDR",
+            "chip": "Apple M3 Pro",
+            "memory": "18GB or 36GB unified memory",
+            "battery": "Up to 18 hours"
+          }
         }
       }
     },
@@ -320,7 +502,18 @@
         "handle": "airpods-pro-2",
         "description": "AirPods Pro with H2 chip, Active Noise Cancellation, Adaptive Audio, and USB-C charging case.",
         "status": "published",
-        "thumbnail": "https://example.com/images/airpods-pro-2.jpg",
+        "thumbnail": "https://cdn.roxstore.pk/products/apple/airpods-pro-2/thumbnail.jpg",
+        "images": [
+          {
+            "url": "https://cdn.roxstore.pk/products/apple/airpods-pro-2/gallery-1.jpg"
+          },
+          {
+            "url": "https://cdn.roxstore.pk/products/apple/airpods-pro-2/gallery-2.jpg"
+          },
+          {
+            "url": "https://cdn.roxstore.pk/products/apple/airpods-pro-2/gallery-3.jpg"
+          }
+        ],
         "categories": ["{{apple_accessories_category_id}}"],
         "collection_id": "{{best_sellers_collection_id}}",
         "options": [
@@ -338,7 +531,12 @@
               { "currency_code": "pkr", "amount": 89999 },
               { "currency_code": "usd", "amount": 249 }
             ],
-            "manage_inventory": true
+            "manage_inventory": true,
+            "metadata": {
+              "images": [
+                "https://cdn.roxstore.pk/products/apple/airpods-pro-2/usbc-case-1.jpg"
+              ]
+            }
           },
           {
             "title": "Lightning Case",
@@ -348,13 +546,30 @@
               { "currency_code": "pkr", "amount": 84999 },
               { "currency_code": "usd", "amount": 229 }
             ],
-            "manage_inventory": true
+            "manage_inventory": true,
+            "metadata": {
+              "images": [
+                "https://cdn.roxstore.pk/products/apple/airpods-pro-2/lightning-case-1.jpg"
+              ]
+            }
           }
         ],
         "metadata": {
           "brand": "Apple",
           "release_year": 2023,
-          "warranty_months": 12
+          "warranty_months": 12,
+          "highlights": [
+            "H2 chip",
+            "Active Noise Cancellation",
+            "Adaptive Audio",
+            "Personalized Spatial Audio"
+          ],
+          "specifications": {
+            "chip": "Apple H2",
+            "noise_cancellation": "Active Noise Cancellation",
+            "battery": "Up to 6 hours listening time",
+            "case_battery": "Up to 30 hours total"
+          }
         }
       }
     }

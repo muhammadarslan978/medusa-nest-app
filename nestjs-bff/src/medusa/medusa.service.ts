@@ -20,19 +20,11 @@ export class MedusaService {
   private readonly publishableKey: string;
 
   constructor(private readonly configService: ConfigService) {
-    this.baseUrl = this.configService.get<string>(
-      'MEDUSA_BACKEND_URL',
-      'http://localhost:9000',
-    );
-    this.publishableKey = this.configService.get<string>(
-      'MEDUSA_PUBLISHABLE_KEY',
-      '',
-    );
+    this.baseUrl = this.configService.get<string>('MEDUSA_BACKEND_URL', 'http://localhost:9000');
+    this.publishableKey = this.configService.get<string>('MEDUSA_PUBLISHABLE_KEY', '');
   }
 
-  private buildQueryString(
-    query?: Record<string, string | number | boolean | undefined>,
-  ): string {
+  private buildQueryString(query?: Record<string, string | number | boolean | undefined>): string {
     if (!query) return '';
 
     const params = new URLSearchParams();
@@ -46,10 +38,7 @@ export class MedusaService {
     return queryString ? `?${queryString}` : '';
   }
 
-  async request<T>(
-    endpoint: string,
-    options: MedusaRequestOptions = {},
-  ): Promise<T> {
+  async request<T>(endpoint: string, options: MedusaRequestOptions = {}): Promise<T> {
     const { method = 'GET', body, headers = {}, query } = options;
 
     const url = `${this.baseUrl}${endpoint}${this.buildQueryString(query)}`;
@@ -82,6 +71,9 @@ export class MedusaService {
         const errorMessage = errorData.message || `Medusa API error: ${response.status}`;
 
         this.logger.error(`Medusa API Error: ${errorMessage}`);
+        this.logger.error(`Full error response: ${JSON.stringify(errorData)}`);
+        this.logger.error(`Request URL: ${url}`);
+        this.logger.error(`Request body: ${JSON.stringify(body)}`);
 
         throw new HttpException(
           {
@@ -114,17 +106,11 @@ export class MedusaService {
     }
   }
 
-  async storeRequest<T>(
-    endpoint: string,
-    options: MedusaRequestOptions = {},
-  ): Promise<T> {
+  async storeRequest<T>(endpoint: string, options: MedusaRequestOptions = {}): Promise<T> {
     return this.request<T>(`/store${endpoint}`, options);
   }
 
-  async adminRequest<T>(
-    endpoint: string,
-    options: MedusaRequestOptions = {},
-  ): Promise<T> {
+  async adminRequest<T>(endpoint: string, options: MedusaRequestOptions = {}): Promise<T> {
     return this.request<T>(`/admin${endpoint}`, options);
   }
 }

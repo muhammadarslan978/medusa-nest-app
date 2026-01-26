@@ -24,7 +24,7 @@ export class CheckoutService {
 
   async getShippingOptions(cartId: string) {
     const response = await this.medusaService.storeRequest<ShippingOptionsResponse>(
-      `/shipping-options/${cartId}`,
+      `/carts/${cartId}/shipping-options`,
     );
 
     return {
@@ -38,26 +38,23 @@ export class CheckoutService {
   }
 
   async updateShippingAddress(cartId: string, dto: UpdateShippingAddressDto) {
-    const response = await this.medusaService.storeRequest<CartResponse>(
-      `/carts/${cartId}`,
-      {
-        method: 'POST',
-        body: {
-          shipping_address: {
-            first_name: dto.firstName,
-            last_name: dto.lastName,
-            address_1: dto.address1,
-            address_2: dto.address2,
-            city: dto.city,
-            province: dto.province,
-            postal_code: dto.postalCode,
-            country_code: dto.countryCode,
-            phone: dto.phone,
-          },
-          email: dto.email,
+    const response = await this.medusaService.storeRequest<CartResponse>(`/carts/${cartId}`, {
+      method: 'POST',
+      body: {
+        shipping_address: {
+          first_name: dto.firstName,
+          last_name: dto.lastName,
+          address_1: dto.address1,
+          address_2: dto.address2,
+          city: dto.city,
+          province: dto.province,
+          postal_code: dto.postalCode,
+          country_code: dto.countryCode,
+          phone: dto.phone,
         },
+        email: dto.email,
       },
-    );
+    });
 
     return { cart: response.cart };
   }
@@ -86,25 +83,23 @@ export class CheckoutService {
 
     return {
       cart: response.cart,
-      paymentSessions: response.cart.payment_sessions?.map((session) => ({
-        id: session.id,
-        providerId: session.provider_id,
-        status: session.status,
-      })) || [],
+      paymentSessions:
+        response.cart.payment_sessions?.map((session) => ({
+          id: session.id,
+          providerId: session.provider_id,
+          status: session.status,
+        })) || [],
     };
   }
 
   async completeCheckout(cartId: string, dto: CompleteCheckoutDto) {
     if (dto.paymentProviderId) {
-      await this.medusaService.storeRequest<CartResponse>(
-        `/carts/${cartId}/payment-session`,
-        {
-          method: 'POST',
-          body: {
-            provider_id: dto.paymentProviderId,
-          },
+      await this.medusaService.storeRequest<CartResponse>(`/carts/${cartId}/payment-session`, {
+        method: 'POST',
+        body: {
+          provider_id: dto.paymentProviderId,
         },
-      );
+      });
     }
 
     const response = await this.medusaService.storeRequest<OrderResponse>(
