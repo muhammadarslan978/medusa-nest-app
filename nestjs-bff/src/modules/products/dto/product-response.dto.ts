@@ -27,6 +27,17 @@ export class ProductPriceDto {
   amount: number;
 }
 
+export class ProductCalculatedPriceDto {
+  @ApiProperty()
+  currencyCode: string;
+
+  @ApiProperty()
+  amount: number;
+
+  @ApiProperty()
+  originalAmount: number;
+}
+
 export class ProductVariantDto {
   @ApiProperty()
   id: string;
@@ -42,6 +53,9 @@ export class ProductVariantDto {
 
   @ApiProperty({ type: [ProductPriceDto] })
   prices: ProductPriceDto[];
+
+  @ApiPropertyOptional({ type: ProductCalculatedPriceDto })
+  calculatedPrice?: ProductCalculatedPriceDto;
 }
 
 export class ProductCollectionDto {

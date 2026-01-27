@@ -15,7 +15,7 @@ export class CartService {
   constructor(private readonly medusaService: MedusaService) {}
 
   async createCart(createCartDto: CreateCartDto): Promise<CartResponseDto> {
-    const body: any = {
+    const body: Record<string, unknown> = {
       region_id: createCartDto.regionId,
     };
 

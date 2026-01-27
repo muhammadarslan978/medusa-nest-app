@@ -20,6 +20,9 @@ interface SingleProductResponse {
 export class ProductsService {
   constructor(private readonly medusaService: MedusaService) {}
 
+  private readonly regionId = process.env.REGION_ID;
+  private readonly salesChannelId = process.env.SALES_CHANNEL_ID;
+
   async getProducts(query: GetProductsDto): Promise<ProductsListResponseDto> {
     const response = await this.medusaService.storeRequest<ProductsResponse>('/products', {
       query: {
@@ -28,6 +31,10 @@ export class ProductsService {
         q: query.search,
         collection_id: query.collectionId,
         category_id: query.categoryId,
+        ...(this.regionId ? { region_id: this.regionId } : {}),
+        ...(this.salesChannelId ? { sales_channel_id: this.salesChannelId } : {}),
+        fields:
+          'id,title,subtitle,description,handle,thumbnail,created_at,updated_at,images.*,options.*,options.values.*,categories.*,collection.*,variants.id,variants.title,variants.sku,variants.inventory_quantity,variants.prices,variants.calculated_price,variants.options.*',
       },
     });
 
@@ -71,6 +78,14 @@ export class ProductsService {
     try {
       const response = await this.medusaService.storeRequest<SingleProductResponse>(
         `/products/${id}`,
+        {
+          query: {
+            ...(this.regionId ? { region_id: this.regionId } : {}),
+            ...(this.salesChannelId ? { sales_channel_id: this.salesChannelId } : {}),
+            fields:
+              'id,title,subtitle,description,handle,thumbnail,created_at,updated_at,images.*,options.*,options.values.*,categories.*,collection.*,variants.id,variants.title,variants.sku,variants.inventory_quantity,variants.prices,variants.calculated_price,variants.options.*',
+          },
+        },
       );
       return { product: this.transformProduct(response.product) };
     } catch (error) {
@@ -86,6 +101,10 @@ export class ProductsService {
       query: {
         handle,
         limit: 1,
+        ...(this.regionId ? { region_id: this.regionId } : {}),
+        ...(this.salesChannelId ? { sales_channel_id: this.salesChannelId } : {}),
+        fields:
+          'id,title,subtitle,description,handle,thumbnail,created_at,updated_at,images.*,options.*,options.values.*,categories.*,collection.*,variants.id,variants.title,variants.sku,variants.inventory_quantity,variants.prices,variants.calculated_price,variants.options.*',
       },
     });
 
@@ -219,6 +238,10 @@ export class ProductsService {
         offset: query.offset,
         limit: query.limit,
         category_id: categoryId,
+        ...(this.regionId ? { region_id: this.regionId } : {}),
+        ...(this.salesChannelId ? { sales_channel_id: this.salesChannelId } : {}),
+        fields:
+          'id,title,subtitle,description,handle,thumbnail,created_at,updated_at,images.*,options.*,options.values.*,categories.*,collection.*,variants.id,variants.title,variants.sku,variants.inventory_quantity,variants.prices,variants.calculated_price,variants.options.*',
       },
     });
 
@@ -239,6 +262,10 @@ export class ProductsService {
         offset: query.offset,
         limit: query.limit,
         collection_id: collectionId,
+        ...(this.regionId ? { region_id: this.regionId } : {}),
+        ...(this.salesChannelId ? { sales_channel_id: this.salesChannelId } : {}),
+        fields:
+          'id,title,subtitle,description,handle,thumbnail,created_at,updated_at,images.*,options.*,options.values.*,categories.*,collection.*,variants.id,variants.title,variants.sku,variants.inventory_quantity,variants.prices,variants.calculated_price,variants.options.*',
       },
     });
 
@@ -280,6 +307,13 @@ export class ProductsService {
               currencyCode: price.currency_code,
               amount: price.amount,
             })) || [],
+          calculatedPrice: variant.calculated_price
+            ? {
+                currencyCode: variant.calculated_price.currency_code,
+                amount: variant.calculated_price.calculated_amount,
+                originalAmount: variant.calculated_price.original_amount,
+              }
+            : undefined,
         })) || [],
       collection: product.collection
         ? {

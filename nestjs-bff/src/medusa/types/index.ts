@@ -49,9 +49,16 @@ export interface MedusaProductVariant {
   allow_backorder: boolean;
   manage_inventory: boolean;
   prices: MedusaPrice[];
+  calculated_price?: MedusaCalculatedPrice;
   options: MedusaProductOptionValue[];
   created_at: string;
   updated_at: string;
+}
+
+export interface MedusaCalculatedPrice {
+  calculated_amount: number;
+  original_amount: number;
+  currency_code: string;
 }
 
 export interface MedusaPrice {
